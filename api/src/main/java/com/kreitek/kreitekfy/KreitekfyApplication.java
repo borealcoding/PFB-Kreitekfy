@@ -1,4 +1,4 @@
-package com.kreitek.Kreitekfy;
+package com.kreitek.kreitekfy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
