@@ -1,0 +1,15 @@
+div#authContainer {
+    background-color: #fff;
+    div#authTitle {
+        font-size: xx-large;
+        font-weight: bold;
+        color: #000;
+    }
+    div#usersContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

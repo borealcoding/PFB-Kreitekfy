@@ -1,0 +1,22 @@
+div#card {
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  padding: 1em;
+  div#image-body {
+    margin-top: 1em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    img#userImage {
+      border-radius: 100%;
+    }
+  }
+  div.card-body {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #000;
+  }
+}
