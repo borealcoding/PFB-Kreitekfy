@@ -1,0 +1,23 @@
+* {
+  background-color: #000;
+  color: #fff;
+}
+
+div#socialIcons {
+  display: flex;
+  a:hover {
+    svg {
+      fill: #28d764;
+    }
+  }
+}
+
+div#copyright {
+  a {
+    text-align: right;
+    color: #c0c0c0;
+  }
+  a:first-child:hover {
+    color: #28d764;
+  }
+}
