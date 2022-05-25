@@ -1,4 +1,4 @@
-package com.kreitek.Kreitekfy;
+package com.kreitek.kreitekfy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
