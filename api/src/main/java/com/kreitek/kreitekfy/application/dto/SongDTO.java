@@ -10,6 +10,8 @@ public class SongDTO implements Serializable {
     private Integer likes;
     private Date releaseDate;
     private Integer playedTimes;
+    private Long artistId;
+    private String artistName;
 
     public SongDTO() {
     }
@@ -51,6 +53,7 @@ public class SongDTO implements Serializable {
     }
 
     public void setReleaseDate(Date releaseDate) {
+
         this.releaseDate = releaseDate;
     }
 
@@ -60,6 +63,22 @@ public class SongDTO implements Serializable {
 
     public void setPlayedTimes(Integer playedTimes) {
         this.playedTimes = playedTimes;
+    }
+
+    public Long getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(Long artistId) {
+        this.artistId = artistId;
+    }
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 }
 

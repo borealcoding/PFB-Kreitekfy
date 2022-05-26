@@ -10,8 +10,8 @@ public class ArtistDTO implements Serializable {
 
     private Long id;
     private String name;
-    private Style styleId;
-    private Style styleName;
+    private Long styleId;
+    private String styleName;
     List<SongDTO> songs;
     List<AlbumDTO> albums;
 
@@ -34,28 +34,28 @@ public class ArtistDTO implements Serializable {
         this.name = name;
     }
 
+    public Long getStyleId() {
+        return styleId;
+    }
+
+    public void setStyleId(Long styleId) {
+        this.styleId = styleId;
+    }
+
+    public String getStyleName() {
+        return styleName;
+    }
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
     public List<SongDTO> getSongs() {
         return songs;
     }
 
     public void setSongs(List<SongDTO> songs) {
         this.songs = songs;
-    }
-
-    public Style getStyleId() {
-        return styleId;
-    }
-
-    public void setStyleId(Style styleId) {
-        this.styleId = styleId;
-    }
-
-    public Style getStyleName() {
-        return styleName;
-    }
-
-    public void setStyleName(Style styleName) {
-        this.styleName = styleName;
     }
 
     public List<AlbumDTO> getAlbums() {
