@@ -31,14 +31,14 @@ public class Song {
     @ManyToOne
     @JoinColumn(name = "album_id", nullable = false)
     private Album album;
-
+/*
    @ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
     @ManyToOne
     @JoinColumn(name = "artist_id", nullable = false)
-    private Artist artist;
+    private Artist artist;*/
 
     public Album getAlbum() {
         return album;
@@ -47,7 +47,7 @@ public class Song {
     public void setAlbum(Album album) {
         this.album = album;
     }
-
+/*
     public Style getStyle() {
         return style;
     }
@@ -63,7 +63,7 @@ public class Song {
     public void setArtist(Artist artist) {
         this.artist = artist;
     }
-
+*/
     public Song() {
     }
 

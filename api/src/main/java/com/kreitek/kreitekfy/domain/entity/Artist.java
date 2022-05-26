@@ -20,13 +20,13 @@ public class Artist {
     @ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;
-
+/*
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     Set<Song> songs;
-
-    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
+*/
+/*    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     Set<Album> album;
-
+*/
     public Long getId() {
         return id;
     }
@@ -50,7 +50,7 @@ public class Artist {
     public void setStyle(Style style) {
         this.style = style;
     }
-
+/*
     public Set<Song> getSongs() {
         return songs;
     }
@@ -58,12 +58,12 @@ public class Artist {
     public void setSongs(Set<Song> songs) {
         this.songs = songs;
     }
-
+*//*
     public Set<Album> getAlbum() {
         return album;
     }
 
     public void setAlbum(Set<Album> album) {
         this.album = album;
-    }
+    }*/
 }

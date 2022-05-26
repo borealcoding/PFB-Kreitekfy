@@ -20,13 +20,13 @@ public class Style {
 
     @OneToMany(mappedBy = "style")
     Set<Artist> artists;
-
+/*
     @OneToMany(mappedBy = "style")
     Set<Song> songs;
-
+*//*
     @OneToMany(mappedBy = "style")
     Set<Album> albums;
-
+*/
 
     public Long getId() {
         return id;
@@ -51,7 +51,7 @@ public class Style {
     public void setArtists(Set<Artist> artists) {
         this.artists = artists;
     }
-
+/*
     public Set<Song> getSongs() {
         return songs;
     }
@@ -59,14 +59,14 @@ public class Style {
     public void setSongs(Set<Song> songs) {
         this.songs = songs;
     }
-
+*//*
     public Set<Album> getAlbums() {
         return albums;
     }
 
     public void setAlbums(Set<Album> albums) {
         this.albums = albums;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {

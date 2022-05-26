@@ -2,6 +2,7 @@ package com.kreitek.kreitekfy.application.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class SongDTO implements Serializable {
     private Long id;
@@ -10,6 +11,9 @@ public class SongDTO implements Serializable {
     private Integer likes;
     private Date releaseDate;
     private Integer playedTimes;
+
+    private Long albumId;
+    private String albumName;
 
     public SongDTO() {
     }
@@ -60,6 +64,40 @@ public class SongDTO implements Serializable {
 
     public void setPlayedTimes(Integer playedTimes) {
         this.playedTimes = playedTimes;
+    }
+
+    public Long getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
+
+    public String getAlbumName() {
+        return albumName;
+    }
+
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SongDTO)) return false;
+        SongDTO songDTO = (SongDTO) o;
+        return Objects.equals(getId(), songDTO.getId()) &&
+                Objects.equals(getName(), songDTO.getName()) &&
+                Objects.equals(getDuration(), songDTO.getDuration()) &&
+                Objects.equals(getLikes(), songDTO.getLikes()) &&
+                Objects.equals(getReleaseDate(), songDTO.getReleaseDate()) &&
+                Objects.equals(getPlayedTimes(), songDTO.getPlayedTimes());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getDuration(), getLikes(), getReleaseDate(), getPlayedTimes());
     }
 }
 
