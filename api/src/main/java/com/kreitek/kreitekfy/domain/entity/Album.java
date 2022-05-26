@@ -22,12 +22,12 @@ public class Album {
 
     @OneToMany(mappedBy = "album",cascade = CascadeType.ALL)
     Set<Song> songs;
-/*
+
     @ManyToOne
     @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;*/
 
@@ -62,7 +62,7 @@ public class Album {
     public void setSongs(Set<Song> songs) {
         this.songs = songs;
     }
-/*
+
     public Artist getArtist() {
         return artist;
     }
@@ -71,7 +71,7 @@ public class Album {
         this.artist = artist;
     }
 
-    public Style getStyle() {
+    /*public Style getStyle() {
         return style;
     }
 

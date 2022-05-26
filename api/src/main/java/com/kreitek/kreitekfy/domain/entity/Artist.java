@@ -17,9 +17,9 @@ public class Artist {
     @Column(name = "name", length = 40, nullable = false)
     private String name;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
-    private Style style;
+    private Style style;*/
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     Set<Song> songs;
@@ -43,13 +43,13 @@ public class Artist {
         this.name = name;
     }
 
-    public Style getStyle() {
+    /*public Style getStyle() {
         return style;
     }
 
     public void setStyle(Style style) {
         this.style = style;
-    }
+    }*/
 
     public Set<Song> getSongs() {
         return songs;

@@ -1,13 +1,17 @@
 package com.kreitek.kreitekfy.application.dto;
 
+import com.kreitek.kreitekfy.domain.entity.Song;
+
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class AlbumSimpleDTO implements Serializable {
     private Long id;
     private String name;
     private byte[] image;
+    List<Song> songs;
 
     public AlbumSimpleDTO() {
     }
@@ -34,6 +38,14 @@ public class AlbumSimpleDTO implements Serializable {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 
     @Override

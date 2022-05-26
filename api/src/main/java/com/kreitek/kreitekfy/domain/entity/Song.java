@@ -33,9 +33,9 @@ public class Song {
     @JoinColumn(name = "album_id", nullable = false)
     private Album album;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
-    private Style style;
+    private Style style;*/
 
     @ManyToOne
     @JoinColumn(name = "artist_id", nullable = false)
@@ -97,13 +97,13 @@ public class Song {
         this.album = album;
     }
 
-    public Style getStyle() {
+    /*public Style getStyle() {
         return style;
     }
 
     public void setStyle(Style style) {
         this.style = style;
-    }
+    }*/
 
     public Artist getArtist() {
         return artist;
