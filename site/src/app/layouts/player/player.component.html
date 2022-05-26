@@ -1,0 +1,128 @@
+<div style="height: 10000px">
+  <div class="container-fluid" style="width: 93%; height: 100%">
+    <div class="row" style="justify-content: space-between">
+      <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
+        Novedades
+      </h3>
+      <p
+        style="
+          display: flex;
+          align-self: right;
+          color: rgba(128, 128, 128, 0.419);
+          margin-top: 20px;
+        "
+      >
+        see all
+      </p>
+    </div>
+
+    <div class="row" >
+      <div *ngFor="let cancion of canciones"
+    
+        id="card"
+        class="card"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <div id="image-body">
+          <img
+            id="albumImage"
+            src="https://m.media-amazon.com/images/I/91Z82BKqrSL._SL1500_.jpg"
+            class="card-img-top"
+            alt="album-image"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{cancion.name}}</h5>
+          <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            quidem, doloremque, quisquam.
+          </p>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content" style=" background-color: #373737bd; height: 800px; ">
+            <div class="modal-header"  style="border: none;">
+              <h5 class="modal-title" id="exampleModalLabel">Titulo Cancion</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+
+              <div class="row" style="height: 40% ;">
+                <div class="col-5">
+                  <img
+                  src="https://m.media-amazon.com/images/I/91Z82BKqrSL._SL1500_.jpg"
+             class="card-img-top"
+                  
+                  />
+                </div>
+
+                <div class="col-7">
+
+                </div>
+
+
+
+              </div>
+              <div class="row" style="height: 10% ;">
+
+              </div>
+
+              <div class="row" style="height: 50% ;">
+
+              </div>
+
+
+
+
+
+            </div>
+            <div class="modal-footer" style="border: none;">
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    <div class="row" style="justify-content: space-between">
+      <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
+        lo mas escuchado
+      </h3>
+    </div>
+
+    <div class="row"></div>
+
+    <div class="row" style="justify-content: space-between">
+      <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
+        Lo mejor valorado
+      </h3>
+    </div>
+
+    <div class="row"></div>
+  </div>
+</div>
