@@ -22,6 +22,7 @@ public class Song {
 
     @Column(name = "likes")
     private Integer likes;
+
     @Column(name="release_date")
     private Date releaseDate;
 
@@ -31,6 +32,7 @@ public class Song {
     @ManyToOne
     @JoinColumn(name = "album_id", nullable = false)
     private Album album;
+
     @ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;

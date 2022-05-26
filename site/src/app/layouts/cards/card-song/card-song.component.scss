@@ -3,7 +3,12 @@ div#card {
   color: #fff;
   border-radius: 1em;
   padding: 1em;
-  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1em 2em rgb(0 0 0 / 75%);
+margin: 30px;
+  width: 18rem ;
+  height: 29rem;
+  transition: 0.5s;
+  mar
   div#image-body {
     width: 90%;
     margin-left: auto;
@@ -12,4 +17,8 @@ div#card {
       border-radius: 1em;
     }
   }
+}
+#card:hover{
+background-color: #3d3d3d;
+transition: 0.5s;
 }

@@ -15,7 +15,7 @@
       "responses": [
         {
           "uuid": "696bbbdf-0fc0-4fb1-a50d-8cbfcef5869e",
-          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"lorem ipsum\",\n    \"duration\": 300,\n    \"releaseDate\": \"15-03-2015\",\n    \"albums\": {\n      \"albumId\": 1,\n      \"albumName\": \"lorem\",\n      \"albumImage\": \"image/jpg\"\n      }\n    \"artist\": {\n      \"artistId\": 1,\n      \"artistName\": \"Pepe\",\n      \"infoArtist\": \"lorem ipsum\",\n      \"albumId\": 1\n      },\n    \"style\": {\n      \"styleId\": 1,\n      \"styleName\": \"lorem ipsum\"\n      }\n  },\n  {\n    \"id\": 2,\n    \"name\": \"lorem ipsum\",\n    \"image\": \"image/jpg\",\n    \"duration\": 300,\n    \"releaseDate\": \"15-03-2015\",\n    \"albums\": {\n      \"albumId\": 2,\n      \"albumName\": \"lorem\",\n      \"albumImage\": \"image/jpg\"\n      },\n    \"artist\": {\n      \"artistId\": 2,\n      \"artistName\": \"Pepe\",\n      \"artistInfo\": \"lorem ipsum\",\n      \"albumId\": 2\n      },\n    \"style\": {\n      \"styleId\": 2,\n      \"styleName\": \"lorem ipsum\"\n    }\n  }\n]",
+          "body": "[\r\n  {\r\n    \"id\": 1,\r\n    \"name\": \"House of the wolves\",\r\n    \"duration\": 150000,\r\n    \"releaseDate\": \"15-04-2005\",\r\n    \"likes\": 1500,\r\n    \"playedTimes\": 2000,\r\n    \"artistId\": 1,\r\n    \"artistName\": \"lorem ipsum\",\r\n    \"albumId\": 1,\r\n    \"albumName\": \"lorem ipsum\",\r\n    \"totalSongs\": 10,\r\n    \"albumReleaseDate\": \"15-03-2015\",\r\n    \"albumImage\": \"image/jpg\"\r\n\r\n  },\r\n  {\r\n    \"id\": 2,\r\n    \"name\": \"lorem ipsum\",\r\n    \"duration\": 40000,\r\n    \"releaseDate\": \"15-04-2010\",\r\n    \"likes\": 500,\r\n    \"playedTimes\": 1500,\r\n    \"artistId\": 1,\r\n    \"artistName\": \"lorem ipsum\",\r\n    \"albumId\": 1,\r\n    \"albumName\": \"lorem ipsum\",\r\n    \"totalSongs\": 10,\r\n    \"albumReleaseDate\": \"15-03-2015\",\r\n    \"albumImage\": \"image/jpg\"\r\n\r\n  }\r\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -45,7 +45,7 @@
       "responses": [
         {
           "uuid": "e8b5135e-5486-4ee4-8a99-381fb08f6874",
-          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"lyrics\": \"lorem ipsum\",\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\",\n    \"albumImage\": \"image/jpg\"\n  }\n}",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\",\n    \"albumImage\": \"image/jpg\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -75,7 +75,7 @@
       "responses": [
         {
           "uuid": "d61fbc6a-8b75-448e-b31d-b4368ad2c17a",
-          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"lyrics\": \"lorem ipsum\",\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\"\n  }\n}",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",

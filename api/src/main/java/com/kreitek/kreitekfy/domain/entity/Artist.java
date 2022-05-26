@@ -1,5 +1,6 @@
 package com.kreitek.kreitekfy.domain.entity;
 
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,15 +17,15 @@ public class Artist {
     @Column(name = "name", length = 40, nullable = false)
     private String name;
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
-    private Style style;*/
+    private Style style;
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
     Set<Song> songs;
 
-    /*@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
-    Set<Album> album;*/
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
+    Set<Album> album;
 
     public Long getId() {
         return id;
@@ -42,13 +43,13 @@ public class Artist {
         this.name = name;
     }
 
-   /* public Style getStyle() {
+    public Style getStyle() {
         return style;
     }
 
     public void setStyle(Style style) {
         this.style = style;
-    }*/
+    }
 
     public Set<Song> getSongs() {
         return songs;
@@ -58,11 +59,11 @@ public class Artist {
         this.songs = songs;
     }
 
-    /*public Set<Album> getAlbum() {
+    public Set<Album> getAlbum() {
         return album;
     }
 
     public void setAlbum(Set<Album> album) {
         this.album = album;
-    }*/
+    }
 }
