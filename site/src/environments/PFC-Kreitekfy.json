@@ -1,0 +1,432 @@
+{
+  "uuid": "705dd08d-adcf-4644-929a-8ce1b8c92610",
+  "lastMigration": 19,
+  "name": "PFC Kreitekfy",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "1faf8bdb-9862-465b-8e7d-fc783d6481b4",
+      "documentation": "Get a TODAS las canciones",
+      "method": "get",
+      "endpoint": "songs",
+      "responses": [
+        {
+          "uuid": "696bbbdf-0fc0-4fb1-a50d-8cbfcef5869e",
+          "body": "[\r\n  {\r\n    \"id\": 1,\r\n    \"name\": \"House of the wolves\",\r\n    \"duration\": 150000,\r\n    \"releaseDate\": \"15-04-2005\",\r\n    \"likes\": 1500,\r\n    \"playedTimes\": 2000,\r\n    \"artistId\": 1,\r\n    \"artistName\": \"lorem ipsum\",\r\n    \"albumId\": 1,\r\n    \"albumName\": \"lorem ipsum\",\r\n    \"totalSongs\": 10,\r\n    \"albumReleaseDate\": \"15-03-2015\",\r\n    \"albumImage\": \"image/jpg\"\r\n\r\n  },\r\n  {\r\n    \"id\": 2,\r\n    \"name\": \"lorem ipsum\",\r\n    \"duration\": 40000,\r\n    \"releaseDate\": \"15-04-2010\",\r\n    \"likes\": 500,\r\n    \"playedTimes\": 1500,\r\n    \"artistId\": 1,\r\n    \"artistName\": \"lorem ipsum\",\r\n    \"albumId\": 1,\r\n    \"albumName\": \"lorem ipsum\",\r\n    \"totalSongs\": 10,\r\n    \"albumReleaseDate\": \"15-03-2015\",\r\n    \"albumImage\": \"image/jpg\"\r\n\r\n  }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "b8a29b1e-c8d4-488f-8dfd-c9f4062663ca",
+      "documentation": "Get a 1 canción",
+      "method": "get",
+      "endpoint": "song/songId",
+      "responses": [
+        {
+          "uuid": "e8b5135e-5486-4ee4-8a99-381fb08f6874",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\",\n    \"albumImage\": \"image/jpg\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "96abb63b-eed0-45fb-8676-467c98fa3597",
+      "documentation": "Añadir 1 nueva canción",
+      "method": "post",
+      "endpoint": "song",
+      "responses": [
+        {
+          "uuid": "d61fbc6a-8b75-448e-b31d-b4368ad2c17a",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "8b628d5e-ecb7-4a45-b771-b0f918e92343",
+      "documentation": "Borrar 1 canción",
+      "method": "delete",
+      "endpoint": "song/songId",
+      "responses": [
+        {
+          "uuid": "9d9e8387-cdec-4d8e-8cce-4a7fa075febe",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "27f0e436-210f-4474-a6f5-00e6151ef0a2",
+      "documentation": "Actualizar 1 canción",
+      "method": "patch",
+      "endpoint": "song/songId",
+      "responses": [
+        {
+          "uuid": "8c7e2911-22fb-4eb1-b54a-ff2b7192c558",
+          "body": "{\n    \"name\": \"lorem ipsum\",\n    \"duration\": 300,\n    \"releaseDate\": \"15-03-2015\",\n    \"likes\": 3,\n    \"palyedTimes\": 50,\n    \"albums\": {\n      \"albumId\": 1,\n      \"albumName\": \"lorem\",\n      \"albumImage\": \"image/jpg\"\n      }\n    \"artist\": {\n      \"artistId\": 1,\n      \"artistName\": \"Pepe\",\n      \"infoArtist\": \"lorem ipsum\",\n      \"albumId\": 1\n      },\n    \"style\": {\n      \"styleId\": 1,\n      \"styleName\": \"lorem ipsum\"\n      }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "42a3df7e-7234-4056-a2f8-f2cb6a120b2d",
+      "documentation": "Get a TODOS los artistas",
+      "method": "get",
+      "endpoint": "artists",
+      "responses": [
+        {
+          "uuid": "5db1cdca-832c-48d0-9d65-378567f6ae0a",
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Lorem ipsum\",\n    \"artistInfo\": \"lorem ipsum\",\n    \"followers\": 100,\n    \"image\": \"image/jpg\",\n    \"albums\": [\n        {\n          \"albumId\": 1,\n          \"albumName\": \"lorem ipsum\",\n          \"albumImage\": \"image/jpg\"\n        },\n        {\n          \"albumId\": 2,\n          \"albumName\": \"lorem ipsum\",\n          \"albumImage\": \"image/jpg\"\n        }\n      ],\n    \"style\": {\n        \"styleId\": 1,\n        \"styleName\": \"lorem ipsum\"\n      }\n    },\n  {\n    \"id\": 2,\n    \"name\": \"Lorem ipsum\",\n    \"artistInfo\": \"lorem ipsum\",\n    \"followers\": 50,\n    \"image\": \"image/jpg\",\n    \"albums\": [\n        {\n          \"albumId\": 1,\n          \"albumName\": \"lorem ipsum\",\n          \"albumImage\": \"image/jpg\"\n        },\n        {\n          \"albumId\": 2,\n          \"albumName\": \"lorem ipsum\",\n          \"albumImage\": \"image/jpg\"\n        }\n      ],\n    \"style\": {\n        \"styleId\": 1,\n        \"styleName\": \"lorem ipsum\"\n      }\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "d86e5c60-00f8-4aa8-9fe6-aa38b864d508",
+      "documentation": "Get a 1 artista",
+      "method": "get",
+      "endpoint": "artist",
+      "responses": [
+        {
+          "uuid": "79db72e8-f148-4436-a8b7-9244e6ce3ce8",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"description\": \"lorem ipsum\",\n  \"styles\": \"lorem ipsum\",\n  \"followers\": 150000,\n  \"image\": \"image/jpg\",\n  \"albums\": [\n      {\n        \"albumId\": 1,\n        \"albumName\": \"lorem ipsum\",\n      },\n      {\n        \"albumId\": 2,\n        \"albumName\": \"lorem ipsum\"\n      }\n  ],\n  \"songs\": [\n    {\n      \"songId\": 1,\n      \"songName\": \"lorem ipsum\",\n      \"songImage\": \"image/jpg\",\n      \"songDuration\": 300,\n      \"songPlayTimes\": 1500\n    },\n    {\n      \"songId\": 2,\n      \"songName\": \"lorem ipsum\",\n      \"songImage\": \"image/jpg\",\n      \"songDuration\": 600,\n      \"songPlayTimes\": 1500\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "48c6e3f9-2765-4c66-b15d-862a83b7b55b",
+      "documentation": "Get a TODOS los álbumes",
+      "method": "get",
+      "endpoint": "albums",
+      "responses": [
+        {
+          "uuid": "429e29c2-782f-47cb-bc75-3e84e9f6a9ef",
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"lorem ipsum\",\n    \"totalSong\": 10,\n    \"releaseDate\": \"25-12-2009\",\n    \"image\": \"image/jpg\",\n    \"artist\": {\n      \"artistId\": 1,\n      \"name\": \"lorem ipsum\"\n    }\n  },\n  {\n    \"id\": 2,\n    \"name\": \"lorem ipsum\",\n    \"totalSong\": 15,\n    \"releaseDate\": \"25-12-2001\",\n    \"image\": \"image/jpg\",\n    \"artist\": {\n      \"artistId\": 2,\n      \"name\": \"lorem ipsum\"\n    }\n  }\n  {\n    \"id\": 3,\n    \"name\": \"lorem ipsum\",\n    \"totalSong\": 8,\n    \"releaseDate\": \"25-12-2003\",\n    \"image\": \"image/jpg\",\n    \"artist\": {\n      \"artistId\": 3,\n      \"name\": \"lorem ipsum\"\n    }\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "462fae5f-4a19-47c8-83a0-a8486803e023",
+      "documentation": "Get a 1 álbum",
+      "method": "get",
+      "endpoint": "album",
+      "responses": [
+        {
+          "uuid": "9047f9ae-66c6-4616-8fa8-0a7ee3444be3",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"totalSongs\": 15,\n  \"dateRelease\": \"29-12-1990\",\n  \"image\": \"image/jpg\",\n  \"songs\": [\n    {\n      \"songId\": 1,\n      \"name\": \"lorem ipsum\",\n      \"duration\": 1200,\n      \"favourite\": true,\n      \"playedTimes\": 1000\n    },\n    {\n      \"songId\": 2,\n      \"songName\": \"lorem ipsum\",\n      \"duration\": 500,\n      \"favourite\": true,\n      \"playedTimes\": 105300\n    }\n  ],\n  \"artist\": {\n    \"artistId\": 1,\n    \"aritstName\": \"lorem ipsum\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "b906a2f7-eab5-4cc6-aca6-e676a7d8237b",
+      "documentation": "Get a 1 usuario",
+      "method": "get",
+      "endpoint": "user",
+      "responses": [
+        {
+          "uuid": "47b841fc-88cf-40df-87a1-249950c9a16f",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "d01001f7-af5c-4deb-9ed7-0b9c934f5030",
+      "documentation": "Get a TODOS usuario",
+      "method": "get",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "e8a57939-2cb7-40b2-9c2f-f86c588d39d1",
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"lorem ipsum\",\n  },\n  {\n    \"id\": 2,\n    \"name\": \"lorem ipsum\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"lorem ipsum\"\n  }\n  ,\n  {\n    \"id\": 4,\n    \"name\": \"lorem ipsum\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "fcbb3406-02f3-4c74-9b42-0549398d2d66",
+      "documentation": "Get a TODOS los estilos",
+      "method": "get",
+      "endpoint": "styles",
+      "responses": [
+        {
+          "uuid": "bad72d9f-ab3f-4e41-ac9d-d36681204718",
+          "body": "[\n  {\n    \"id\":1,\n    \"name\": \"lorem ipsum\",\n    \"albums\": [\n      {\n        \"albumId\": 1,\n        \"albumName\": \"lorem ipsum\"\n      },\n      {\n        \"albumId\": 2,\n        \"albumName\": \"lorem ipsum\"\n      },\n      {\n        \"albumId\": 3,\n        \"albumName\": \"lorem ipsum\"\n      }\n    ],\n    \"artists\": [\n      {\n        \"artistId\": 1,\n        \"artistName\": \"lorem ipsum\"\n      },\n      {\n        \"artistId\": 2,\n        \"artistName\": \"lorem ipsum\"\n      }\n      {\n        \"artistId\": 3,\n        \"artistName\": \"lorem ipsum\"\n      }\n    ],\n    \"songs\": [\n      {\n        \"songId\": 1,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 3000\n      },\n      {\n        \"songId\": 2,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 500\n      },\n      {\n        \"songId\": 3,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 200\n      }\n    ]\n  },\n  {\n    \"id\": 2,\n    \"name\": \"lorem ipsum\",\n    \"albums\": [\n      {\n        \"albumId\": 1,\n        \"albumName\": \"lorem ipsum\"\n      },\n      {\n        \"albumId\": 2,\n        \"albumName\": \"lorem ipsum\"\n      },\n      {\n        \"albumId\": 3,\n        \"albumName\": \"lorem ipsum\"\n      }\n    ],\n    \"artists\": [\n      {\n        \"artistId\": 1,\n        \"artistName\": \"lorem ipsum\"\n      },\n      {\n        \"artistId\": 2,\n        \"artistName\": \"lorem ipsum\"\n      }\n      {\n        \"artistId\": 3,\n        \"artistName\": \"lorem ipsum\"\n      }\n    ],\n    \"songs\": [\n      {\n        \"songId\": 1,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 3000\n      },\n      {\n        \"songId\": 2,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 500\n      },\n      {\n        \"songId\": 3,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 200\n      }\n    ]\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "35a83ec3-c6f8-4519-84f2-df2ebd5c877f",
+      "documentation": "Get a 1 estilos",
+      "method": "get",
+      "endpoint": "style",
+      "responses": [
+        {
+          "uuid": "c507b1b0-f905-4a18-9484-a83846e754ee",
+          "body": "{\n    \"id\":1,\n    \"name\": \"lorem ipsum\",\n    \"albums\": [\n      {\n        \"albumId\": 1,\n        \"albumName\": \"lorem ipsum\"\n      },\n      {\n        \"albumId\": 2,\n        \"albumName\": \"lorem ipsum\"\n      },\n      {\n        \"albumId\": 3,\n        \"albumName\": \"lorem ipsum\"\n      }\n    ],\n    \"artists\": [\n      {\n        \"artistId\": 1,\n        \"artistName\": \"lorem ipsum\"\n      },\n      {\n        \"artistId\": 2,\n        \"artistName\": \"lorem ipsum\"\n      }\n      {\n        \"artistId\": 3,\n        \"artistName\": \"lorem ipsum\"\n      }\n    ],\n    \"songs\": [\n      {\n        \"songId\": 1,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 3000\n      },\n      {\n        \"songId\": 2,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 500\n      },\n      {\n        \"songId\": 3,\n        \"songName\": \"lorem ipsum\"\n        \"songDuration\": 200\n      }\n    ]\n  }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
