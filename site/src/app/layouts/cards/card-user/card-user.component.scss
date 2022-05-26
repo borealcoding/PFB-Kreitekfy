@@ -1,11 +1,13 @@
 div#card {
-  background-color: transparent;
   color: #fff;
   border: 0;
   padding: 1em;
+  width: 12rem;
+  height: 280px;
+  cursor: pointer;
   div#image-body {
     margin-top: 1em;
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     img#userImage {

@@ -1,0 +1,31 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div id="modal" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="background-color: rgba(128, 128, 128, 0.459); padding-top: 10%">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div id="modalBody" class="modal-body" style="display: flex; flex-direction:column; justify-content: center; word-wrap: break-word;">
+        <div id="modalTitle" style="font-size: 40px; font-weight: bold; text-align: center; margin-top: 1em;">
+          <p>¿Quién está escuchando?</p>
+        </div>
+        <div id="modalContent" style="display: flex; flex-direction:row; justify-content: center; word-wrap: break-word;">
+          <button (click)="getText()" data-bs-dismiss="modal" style="border: 0; background-color: transparent;">
+            <app-card-user></app-card-user>
+          </button>
+          <button data-bs-dismiss="modal" style="border: 0; background-color: transparent;">
+            <app-card-user></app-card-user>
+          </button>
+          <button data-bs-dismiss="modal" style="border: 0; background-color: transparent;">
+            <app-card-user></app-card-user>
+          </button>
+          <button data-bs-dismiss="modal" style="border: 0; background-color: transparent;">
+            <app-card-user></app-card-user>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

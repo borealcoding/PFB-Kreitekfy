@@ -1,15 +1,26 @@
 div#authContainer {
-    background-color: #fff;
-    div#authTitle {
-        font-size: xx-large;
-        font-weight: bold;
-        color: #000;
-    }
-    div#usersContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1em;
+  z-index: 100;
+  div#authTitle {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+  }
+  div#usersContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
