@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,12 @@ import { PlayerComponent } from './layouts/player/player.component';
 import { CardSongComponent } from './layouts/cards/card-song/card-song.component';
 import { CardUserComponent } from './layouts/cards/card-user/card-user.component';
 import { AuthComponent } from './auth/auth.component';
-1
+
+import { CommonModule } from '@angular/common';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,14 +29,19 @@ import { AuthComponent } from './auth/auth.component';
 
     CardSongComponent,
     CardUserComponent,
-    AuthComponent
+    AuthComponent,
+
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
