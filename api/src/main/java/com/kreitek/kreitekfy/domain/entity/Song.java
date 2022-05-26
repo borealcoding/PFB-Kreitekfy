@@ -8,8 +8,8 @@ import java.util.Date;
 @Table(name="song")
 public class Song {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "songSequence")
-    @SequenceGenerator(name="songSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "song_sequence")
+    @SequenceGenerator(name="song_sequence")
     private Long id;
 
     @Column(nullable=false, length = 100)
@@ -29,15 +29,15 @@ public class Song {
     private Integer playedTimes;
 
     @ManyToOne
-    @JoinColumn(name = "albumId", nullable = false)
+    @JoinColumn(name = "album_id", nullable = false)
     private Album album;
 
-    @ManyToOne
-    @JoinColumn(name = "styleId", nullable = false)
+   @ManyToOne
+    @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
     @ManyToOne
-    @JoinColumn(name = "albumId", nullable = false)
+    @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
 
     public Album getAlbum() {
@@ -114,4 +114,5 @@ public class Song {
     public void setPlayedTimes(Integer playedTimes) {
         playedTimes = playedTimes;
     }
+
 }

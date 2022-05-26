@@ -8,8 +8,8 @@ import java.util.Set;
 public class Album {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "albumSequence")
-    @SequenceGenerator(name = "albumSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "album_sequence")
+    @SequenceGenerator(name = "album_sequence")
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -20,15 +20,15 @@ public class Album {
     @Column(name = "image")
     private byte[] image;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album",cascade = CascadeType.ALL)
     Set<Song> songs;
 
     @ManyToOne
-    @JoinColumn(name = "artistId", nullable = false)
+    @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
 
     @ManyToOne
-    @JoinColumn(name = "styleId", nullable = false)
+    @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
     public Long getId() {

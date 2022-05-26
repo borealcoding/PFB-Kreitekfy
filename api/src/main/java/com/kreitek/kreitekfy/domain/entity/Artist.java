@@ -9,8 +9,8 @@ import java.util.Set;
 public class Artist {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "artistSequence")
-    @SequenceGenerator(name = "artistSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "artist_sequence")
+    @SequenceGenerator(name = "artist_sequence")
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -18,7 +18,7 @@ public class Artist {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "styleId", nullable = false)
+    @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)

@@ -10,8 +10,8 @@ import java.util.Set;
 public class Style {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "styleSequence")
-    @SequenceGenerator(name = "styleSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "style_sequence")
+    @SequenceGenerator(name = "style_sequence")
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -21,10 +21,10 @@ public class Style {
     @OneToMany(mappedBy = "style")
     Set<Artist> artists;
 
-    @OneToMany(mappedBy = "song")
+    @OneToMany(mappedBy = "style")
     Set<Song> songs;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "style")
     Set<Album> albums;
 
 
