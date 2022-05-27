@@ -16,6 +16,9 @@ public class User {
     @Column(name = "name", length = 20, nullable = false)
     private String name;
 
+     @Column(name = "rol", length = 20, nullable = false)
+    private String rol;
+
     //TODO añadir relación MANY_TO_MANY user -> user_songs
     //TODO añadir relación MANY_TO_MANY user -> user_styles
     //TODO añadir getters & setters para relaciones
@@ -34,5 +37,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

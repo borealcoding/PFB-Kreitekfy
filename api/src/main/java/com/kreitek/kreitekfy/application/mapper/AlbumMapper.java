@@ -3,11 +3,10 @@ package com.kreitek.kreitekfy.application.mapper;
 import com.kreitek.kreitekfy.application.dto.AlbumDTO;
 import com.kreitek.kreitekfy.application.dto.AlbumSimpleDTO;
 import com.kreitek.kreitekfy.domain.entity.Album;
-import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring",uses = {ArtistMapper.class})
+@Mapper(componentModel = "spring",uses = {SongMapper.class,ArtistMapper.class})
 public interface AlbumMapper extends EntityMapper<AlbumDTO, Album>{
 
         @Override
