@@ -18,12 +18,12 @@ public class Style {
     @Column(name = "name", length = 40, nullable = false)
     private String name;
 
-    /*@OneToMany(mappedBy = "style")
+    @OneToMany(mappedBy = "style")
     Set<Artist> artists;
 
     @OneToMany(mappedBy = "style")
     Set<Song> songs;
-
+/*
     @OneToMany(mappedBy = "style")
     Set<Album> albums;*/
 
@@ -44,7 +44,7 @@ public class Style {
         this.name = name;
     }
 
-    /*public Set<Artist> getArtists() {
+    public Set<Artist> getArtists() {
         return artists;
     }
 
@@ -59,7 +59,7 @@ public class Style {
     public void setSongs(Set<Song> songs) {
         this.songs = songs;
     }
-
+/*
     public Set<Album> getAlbums() {
         return albums;
     }

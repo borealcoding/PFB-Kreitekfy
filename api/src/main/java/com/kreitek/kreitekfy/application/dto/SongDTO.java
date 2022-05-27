@@ -16,6 +16,14 @@ public class SongDTO implements Serializable {
 
     private Long albumId;
     private String albumName;
+    private byte[] image;
+
+    private Long styleId;
+    private String styleName;
+
+
+
+
 
     public SongDTO() {
     }
@@ -98,6 +106,30 @@ public class SongDTO implements Serializable {
 
     public void setAlbumName(String albumName) {
         this.albumName = albumName;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Long getStyleId() {
+        return styleId;
+    }
+
+    public void setStyleId(Long styleId) {
+        this.styleId = styleId;
+    }
+
+    public String getStyleName() {
+        return styleName;
+    }
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
     }
 }
 

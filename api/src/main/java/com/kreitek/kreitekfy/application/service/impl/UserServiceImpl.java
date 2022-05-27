@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<UserDTO> getUserById(Long userId) {
         return this.userPersistence.getUserById(userId).map(userMapper::toDto);
     }
