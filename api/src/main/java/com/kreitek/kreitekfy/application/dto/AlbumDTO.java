@@ -17,6 +17,9 @@ public class AlbumDTO implements Serializable {
 
     private Long artistId;
     private String artistName;
+
+
+
     /*private Long styleId;
     private String styleName;*/
 
