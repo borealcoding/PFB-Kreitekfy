@@ -12,9 +12,17 @@ import { PlayerComponent } from './layouts/player/player.component';
 import { CardSongComponent } from './layouts/cards/card-song/card-song.component';
 import { CardUserComponent } from './layouts/cards/card-user/card-user.component';
 import { AuthComponent } from './auth/auth.component';
-import { ModalComponent } from './auth/modal/modal.component';
 
 import { CommonModule } from '@angular/common';
+import { SongComponent } from './entities/song/song.component';
+import { AlbumComponent } from './entities/album/album.component';
+import { StyleComponent } from './entities/style/style.component';
+import { ArtistComponent } from './entities/artist/artist.component';
+import { BackofficeComponent } from './layouts/backoffice/backoffice.component';
+import { UserListComponent } from './entities/user/user-list/user-list.component';
+import { UserAdminComponent } from './entities/user/user-admin/user-admin.component';
+import { SongListComponent } from './entities/song/song-list/song-list.component';
+import { UserPlayerComponent } from './entities/user/user-player/user-player.component';
 
 
 
@@ -29,7 +37,15 @@ import { CommonModule } from '@angular/common';
     CardSongComponent,
     CardUserComponent,
     AuthComponent,
-    ModalComponent
+    SongComponent,
+    AlbumComponent,
+    StyleComponent,
+    ArtistComponent,
+    BackofficeComponent,
+    UserListComponent,
+    UserAdminComponent,
+    SongListComponent,
+    UserPlayerComponent
   ],
   imports: [
     BrowserModule,
