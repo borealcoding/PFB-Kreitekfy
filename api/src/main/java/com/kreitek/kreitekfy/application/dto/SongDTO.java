@@ -1,6 +1,7 @@
 package com.kreitek.kreitekfy.application.dto;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SongDTO implements Serializable {
@@ -57,7 +58,8 @@ public class SongDTO implements Serializable {
     }
 
     public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
+        Date formatedDate = new java.sql.Date(releaseDate.getTime());
+        this.releaseDate = formatedDate;
     }
 
     public Integer getPlayedTimes() {
