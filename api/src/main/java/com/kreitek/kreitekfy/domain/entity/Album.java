@@ -27,9 +27,9 @@ public class Album {
     @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
-    private Style style;
+    private Style style;*/
 
     public Long getId() {
         return id;
@@ -71,14 +71,14 @@ public class Album {
         this.artist = artist;
     }
 
-    public Style getStyle() {
+    /*public Style getStyle() {
         return style;
     }
 
     public void setStyle(Style style) {
         this.style = style;
     }
-
+*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

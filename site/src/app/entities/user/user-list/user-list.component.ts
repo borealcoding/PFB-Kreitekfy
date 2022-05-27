@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/user.model';
 import { UserListService } from './service/user-list.service';
 
@@ -16,6 +15,7 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
+    localStorage.clear();
   }
 
   public getAllUsers() {
@@ -23,10 +23,13 @@ export class UserListComponent implements OnInit {
       (data) => {
         data.forEach((user) => {
           this.users.push(user);
-          console.log(this.users);
         })
       }
     )
+  }
+
+  public saveStorage(user: User){
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
 }

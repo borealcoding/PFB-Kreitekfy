@@ -3,9 +3,9 @@ export class User {
     name: string;
     role: string;
 
-    constructor(id: number, name: string, role: string) {
-        this.id = id
-        this.name = name
-        this.role = role
-    }
+  constructor() {
+    this.id = 0
+    this.name = ''
+    this.role = ''
+  }
 }

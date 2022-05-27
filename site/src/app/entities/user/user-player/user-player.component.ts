@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-user-player',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPlayerComponent implements OnInit {
 
+  dataUser: User = new User();
+
   constructor() { }
 
   ngOnInit(): void {
+    this.getLocalStorage();
+  }
+
+  public getLocalStorage() {
+    this.dataUser = JSON.parse(localStorage.getItem('user') as string);
+    console.log(this.dataUser);
+    console.log(this.dataUser.id);
   }
 
 }

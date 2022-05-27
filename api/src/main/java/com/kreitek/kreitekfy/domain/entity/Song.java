@@ -3,16 +3,17 @@ package com.kreitek.kreitekfy.domain.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="song")
 public class Song {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "song_sequence")
-    @SequenceGenerator(name="song_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "song_sequence")
+    @SequenceGenerator(name = "song_sequence")
     private Long id;
 
-    @Column(nullable=false, length = 100)
+    @Column(nullable = false, length = 100)
     @Size(min =3,max = 100)
     private String name;
 
@@ -32,40 +33,13 @@ public class Song {
     @JoinColumn(name = "album_id", nullable = false)
     private Album album;
 
-   @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "style_id", nullable = false)
-    private Style style;
+    private Style style;*/
 
     @ManyToOne
     @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
-
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
-
-    public Style getStyle() {
-        return style;
-    }
-
-    public void setStyle(Style style) {
-        this.style = style;
-    }
-
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Song() {
-    }
 
     public Long getId() {
         return id;
@@ -112,7 +86,43 @@ public class Song {
     }
 
     public void setPlayedTimes(Integer playedTimes) {
-        playedTimes = playedTimes;
+        this.playedTimes = playedTimes;
     }
 
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    /*public Style getStyle() {
+        return style;
+    }
+
+    public void setStyle(Style style) {
+        this.style = style;
+    }*/
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return id.equals(song.id) && name.equals(song.name) && Objects.equals(duration, song.duration) && Objects.equals(likes, song.likes) && Objects.equals(releaseDate, song.releaseDate) && Objects.equals(playedTimes, song.playedTimes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, duration, likes, releaseDate, playedTimes);
+    }
 }

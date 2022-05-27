@@ -10,10 +10,12 @@ public class ArtistDTO implements Serializable {
 
     private Long id;
     private String name;
-    private Style styleId;
-    private Style styleName;
+    /*private Long styleId;
+    private String styleName;*/
     List<SongDTO> songs;
-    List<AlbumDTO> albums;
+    List<AlbumDTO> album;
+    /*private Long albumId;
+    private String albumName;*/
 
     public ArtistDTO() {
     }
@@ -34,6 +36,22 @@ public class ArtistDTO implements Serializable {
         this.name = name;
     }
 
+    /*public Long getStyleId() {
+        return styleId;
+    }
+
+    public void setStyleId(Long styleId) {
+        this.styleId = styleId;
+    }
+
+    public String getStyleName() {
+        return styleName;
+    }
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }*/
+
     public List<SongDTO> getSongs() {
         return songs;
     }
@@ -42,29 +60,14 @@ public class ArtistDTO implements Serializable {
         this.songs = songs;
     }
 
-    public Style getStyleId() {
-        return styleId;
+    public List<AlbumDTO> getAlbum() {
+        return album;
     }
 
-    public void setStyleId(Style styleId) {
-        this.styleId = styleId;
+    public void setAlbum(List<AlbumDTO> album) {
+        this.album = album;
     }
 
-    public Style getStyleName() {
-        return styleName;
-    }
-
-    public void setStyleName(Style styleName) {
-        this.styleName = styleName;
-    }
-
-    public List<AlbumDTO> getAlbums() {
-        return albums;
-    }
-
-    public void setAlbums(List<AlbumDTO> albums) {
-        this.albums = albums;
-    }
 
     @Override
     public boolean equals(Object o) {

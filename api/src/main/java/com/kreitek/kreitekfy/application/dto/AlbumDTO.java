@@ -11,12 +11,14 @@ public class AlbumDTO implements Serializable {
     private String name;
     private byte[] image;
     List<SongDTO> songs;
-    private Long songId;
-    private String songName;
+
+    /*private Long songId;
+    private String songName;*/
+
     private Long artistId;
     private String artistName;
-    private Long styleId;
-    private String styleName;
+    /*private Long styleId;
+    private String styleName;*/
 
     public AlbumDTO() {
     }
@@ -53,7 +55,7 @@ public class AlbumDTO implements Serializable {
         this.songs = songs;
     }
 
-    public Long getSongId() {
+    /*public Long getSongId() {
         return songId;
     }
 
@@ -67,7 +69,7 @@ public class AlbumDTO implements Serializable {
 
     public void setSongName(String songName) {
         this.songName = songName;
-    }
+    }*/
 
     public Long getArtistId() {
         return artistId;
@@ -85,7 +87,7 @@ public class AlbumDTO implements Serializable {
         this.artistName = artistName;
     }
 
-    public Long getStyleId() {
+    /*public Long getStyleId() {
         return styleId;
     }
 
@@ -99,7 +101,7 @@ public class AlbumDTO implements Serializable {
 
     public void setStyleName(String styleName) {
         this.styleName = styleName;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
