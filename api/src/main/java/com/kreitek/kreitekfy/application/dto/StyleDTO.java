@@ -8,9 +8,9 @@ public class StyleDTO implements Serializable {
 
     private Long id;
     private String name;
-    List<ArtistDTO> artists;
+  /* List<ArtistDTO> artists;
     List<SongDTO> songs;
-    List<AlbumDTO> albums;
+    List<AlbumDTO> albums;*/
 
     public StyleDTO() {
     }
@@ -31,7 +31,7 @@ public class StyleDTO implements Serializable {
         this.name = name;
     }
 
-    public List<ArtistDTO> getArtists() {
+  /*  public List<ArtistDTO> getArtists() {
         return artists;
     }
 
@@ -47,14 +47,14 @@ public class StyleDTO implements Serializable {
         this.songs = songs;
     }
 
-    public List<AlbumDTO> getAlbums() {
+  /*  public List<AlbumDTO> getAlbums() {
         return albums;
     }
 
     public void setAlbums(List<AlbumDTO> albums) {
         this.albums = albums;
     }
-
+*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

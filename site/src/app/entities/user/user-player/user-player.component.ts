@@ -16,7 +16,7 @@ export class UserPlayerComponent implements OnInit {
     this.getLocalStorage();
   }
 
-  public getLocalStorage(){
+  public getLocalStorage() {
     this.dataUser = JSON.parse(localStorage.getItem('user') as string);
     console.log(this.dataUser);
     console.log(this.dataUser.id);

@@ -16,7 +16,6 @@ public interface AlbumMapper extends EntityMapper<AlbumDTO, Album>{
         @Override
         @Mapping(source = "artist.id", target = "artistId")
         @Mapping(source = "artist.name", target = "artistName")
-        //@InheritInverseConfiguration
         AlbumDTO toDto(Album album);
 
         default Album fromId(Long id){
