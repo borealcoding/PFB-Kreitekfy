@@ -1,0 +1,27 @@
+<div id="authContainer">
+  <div id="authTitle">
+    <p>¿Quién está escuchando?</p>
+  </div>
+  <div id="usersContainer">
+    <div *ngFor="let user of users" class="user">
+      <div id="card" class="card">
+        <a
+          [routerLink]="user.role === 'ADMIN' ? 'admin' : 'user'"
+          (click)="saveStorage(user)"
+        >
+          <div id="image-body">
+            <img
+              id="userImage"
+              src="https://ayalabr.com/wp-content/uploads/2021/06/pic.png"
+              class="card-img-top"
+              alt="user-image"
+            />
+          </div>
+        </a>
+        <div class="card-body">
+          <p id="userNameTxt" class="card-title">{{ user.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
