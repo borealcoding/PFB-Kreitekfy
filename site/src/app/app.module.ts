@@ -15,6 +15,10 @@ import { AuthComponent } from './auth/auth.component';
 import { ModalComponent } from './auth/modal/modal.component';
 
 import { CommonModule } from '@angular/common';
+import { SongComponent } from './entities/song/song.component';
+import { UserAdminComponent } from './entities/user/user-admin/user-admin.component';
+import { UserListComponent } from './entities/user/user-list/user-list.component';
+import { UserPlayerComponent } from './entities/user/user-player/user-player.component';
 
 
 
@@ -29,7 +33,11 @@ import { CommonModule } from '@angular/common';
     CardSongComponent,
     CardUserComponent,
     AuthComponent,
-    ModalComponent
+    ModalComponent,
+    SongComponent,
+    UserAdminComponent,
+    UserListComponent,
+    UserPlayerComponent
   ],
   imports: [
     BrowserModule,

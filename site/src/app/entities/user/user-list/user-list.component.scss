@@ -1,0 +1,52 @@
+div#authContainer {
+    background-color: #fff;
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2em;
+    z-index: 100;
+    div#authTitle {
+      font-size: xx-large;
+      font-weight: bold;
+      color: #000;
+      text-align: center;
+    }
+    div#usersContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+  
+  div#card {
+    color: #fff;
+    border: 0;
+    padding: 1em;
+    width: 12rem;
+    height: 280px;
+    cursor: pointer;
+    div#image-body {
+      margin-top: 1em;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      img#userImage {
+        border-radius: 100%;
+      }
+    }
+    div.card-body {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #000;
+    }
+  }
