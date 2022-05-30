@@ -44,4 +44,11 @@ public class StyleServiceImpl implements StyleService {
     public Optional<StyleDTO> getStyleById(Long styleId) {
           return  this.stylePersistence.getStyleById(styleId).map(styleMapper::toDto);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<StyleDTO> getAllStylesByPartialName(String partialStyleName) {
+        List<Style> styles = this.stylePersistence.getCategoriesByName(partialStyleName);
+        return styleMapper.toDto(styles);
+    }
 }

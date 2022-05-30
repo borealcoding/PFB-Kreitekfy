@@ -9,4 +9,6 @@ public interface StyleService {
     List<StyleDTO>getAllStyles();
     StyleDTO saveStyle(StyleDTO styleDTO);
     Optional<StyleDTO>getStyleById(Long styleId);
+
+    List<StyleDTO> getAllStylesByPartialName(String partialStyleName);
 }
