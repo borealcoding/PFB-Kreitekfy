@@ -48,7 +48,7 @@ public class StyleServiceImpl implements StyleService {
     @Override
     @Transactional(readOnly = true)
     public List<StyleDTO> getAllStylesByPartialName(String partialStyleName) {
-        List<Style> styles = this.stylePersistence.getCategoriesByName(partialStyleName);
+        List<Style> styles = this.stylePersistence.getStylesByName(partialStyleName);
         return styleMapper.toDto(styles);
     }
 }

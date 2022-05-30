@@ -2,6 +2,7 @@ package com.kreitek.kreitekfy.infrastructure.rest;
 
 
 import com.kreitek.kreitekfy.application.dto.ArtistDTO;
+import com.kreitek.kreitekfy.application.dto.StyleDTO;
 import com.kreitek.kreitekfy.application.service.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,16 +21,22 @@ public class ArtistRestController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/artists", produces = "application/json")
-    public ResponseEntity<List<ArtistDTO>> getAllArtist() {
-        List<ArtistDTO> artistDTOS = artistService.getAllArtist();
-        return new ResponseEntity<>(artistDTOS, HttpStatus.OK);
-    }
-
-    @CrossOrigin
     @PostMapping(value = "/artists", produces = "application/json", consumes = "application/json")
     public ResponseEntity<ArtistDTO> insertArtist(@RequestBody ArtistDTO artistDTO) {
         ArtistDTO artistSaved = this.artistService.saveArtist(artistDTO);
         return new ResponseEntity<>(artistSaved, HttpStatus.CREATED);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/artists", produces = "application/json")
+    ResponseEntity<List<ArtistDTO>> getStylesPartialName(@RequestParam(name = "partialName", required = false) String partialArtistName) {
+        List<ArtistDTO> artist;
+
+        if (partialArtistName == null) {
+            artist = artistService.getAllArtist();
+        } else {
+            artist = this.artistService.getAllArtistByPartialName(partialArtistName);
+        }
+        return new ResponseEntity<>(artist, HttpStatus.OK);
     }
 }

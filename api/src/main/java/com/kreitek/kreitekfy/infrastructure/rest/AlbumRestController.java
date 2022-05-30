@@ -19,17 +19,23 @@ public class AlbumRestController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/albums", produces = "application/json")
-    public ResponseEntity<List<AlbumDTO>> getAllAlbum(){
-        List<AlbumDTO> albumDTOS= albumService.getAllAlbums();
-        return new ResponseEntity<>(albumDTOS, HttpStatus.OK);
-    }
-
-    @CrossOrigin
     @PostMapping(value = "/albums", produces = "application/json",consumes = "application/json")
     public ResponseEntity<AlbumDTO>insertAlbum(@RequestBody AlbumDTO albumDTO){
         albumDTO=this.albumService.saveAlbum(albumDTO);
         return  new ResponseEntity<>(albumDTO,HttpStatus.CREATED);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/albums", produces = "application/json")
+    public ResponseEntity<List<AlbumDTO>> getAlbumsPartialName(@RequestParam(name = "partialName", required = false) String partialAlbumName) {
+        List<AlbumDTO> albums;
+
+        if (partialAlbumName == null) {
+            albums = this.albumService.getAllAlbums();
+        } else {
+            albums = this.albumService.getAllAlbumsByPartialName(partialAlbumName);
+        }
+        return new ResponseEntity<>(albums, HttpStatus.OK);
     }
 
 }
