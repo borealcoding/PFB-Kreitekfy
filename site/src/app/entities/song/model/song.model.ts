@@ -1,4 +1,4 @@
-export class Songs {
+export class Song {
     id: number;
     name: string;
     duration: number;
@@ -29,3 +29,6 @@ export class Songs {
         this.albumImage = "";
     }
 }
+
+
+

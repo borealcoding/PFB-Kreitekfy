@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Canciones } from './model/canciones.model';
+import { Song } from 'src/app/entities/song/model/song.model';
 import { PlayerService } from './services/player.service';
 
 @Component({
@@ -10,32 +9,22 @@ import { PlayerService } from './services/player.service';
 })
 export class PlayerComponent implements OnInit {
 
-  canciones : Canciones[] = [];
+  songs: Song[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private cancionesService: PlayerService
-  ) { }
+  constructor(private cancionesService: PlayerService) { }
 
   ngOnInit(): void {
-this.GetAllSongs();
+    this.getAllSongs();
   }
-public GetAllSongs(){
-  this.cancionesService.getAllSongs().subscribe(
-    (data) =>{
-      data.forEach((cancion)=>{
-        this.canciones.push(cancion);
-        console.log(this.canciones)
-      }) 
-    }
-  )
-}
-  // public getOneSong(id : number){
-  //   this.cancionesService.getOneSong(id).subscribe(
-  //   (data:any) =>{
-  //     this.cancion = data[0];
-  //   }
-  //   )
 
-  // }
+  public getAllSongs() {
+    this.cancionesService.getAllSongs().subscribe(
+      (data) => {
+        data.forEach((cancion) => {
+          this.songs.push(cancion);
+          console.log(this.songs)
+        })
+      }
+    )
+  }
 }
