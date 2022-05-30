@@ -13,6 +13,6 @@ public interface SongService {
     Optional<SongDTO> getSongById(Long songId);
     SongDTO saveSong(SongDTO songDTO);
     void deleteSong(Long songId);
-    Page<SongDTO> getSongPaged(Pageable pageable);
+    Page<SongDTO> getSongPaged(Pageable pageable,String filter);
 
 }

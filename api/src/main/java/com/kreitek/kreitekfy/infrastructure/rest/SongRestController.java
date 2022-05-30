@@ -53,8 +53,8 @@ public class SongRestController {
     }
     @CrossOrigin
     @GetMapping(value = "/songs",produces="application/json")//con paginacion
-    public ResponseEntity<Page<SongDTO>> getAllSongsPaged(Pageable pageable){
-        Page<SongDTO> songDTOS= songService.getSongPaged(pageable);
+    public ResponseEntity<Page<SongDTO>> getAllSongsPaged(@RequestParam(value = "filter", required = false) String filter,Pageable pageable){
+        Page<SongDTO> songDTOS= songService.getSongPaged(pageable,filter);
         return new ResponseEntity<Page<SongDTO>>(songDTOS, HttpStatus.OK);
     }
 
