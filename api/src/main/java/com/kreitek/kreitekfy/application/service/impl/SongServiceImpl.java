@@ -6,6 +6,8 @@ import com.kreitek.kreitekfy.application.service.SongService;
 import com.kreitek.kreitekfy.domain.entity.Song;
 import com.kreitek.kreitekfy.domain.persistence.SongPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,5 +49,10 @@ public class SongServiceImpl implements SongService {
     @Override
     public void deleteSong(Long songId) {
         this.songPersistence.deleteSong(songId);
+    }
+    @Override
+    public Page<SongDTO> getSongPaged(Pageable pageable) {
+        Page<Song> SongPage = this.songPersistence.findAll(pageable)  ;
+        return SongPage.map(songMapper::toDto);
     }
 }
