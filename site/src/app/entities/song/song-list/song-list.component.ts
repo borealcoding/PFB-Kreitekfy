@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Songs } from '../song.model';
+import { Song } from '../model/song.model';
 import { SongListService } from './services/song-list.service';
 
 @Component({
@@ -9,22 +9,20 @@ import { SongListService } from './services/song-list.service';
   styleUrls: ['./song-list.component.scss']
 })
 export class SongListComponent implements OnInit {
-  songs: Songs[] = [];
+
+  songs: Song[] = [];
 
   constructor(private route: ActivatedRoute, private songsListService: SongListService) { }
 
   ngOnInit(): void {
-
+    this.getAllSongs();
   }
 
-  public getAllSongs() {
-    this.songsListService.getAllSongs().subscribe(
-      (data) => {
-        data.forEach((song) => {
-          this.songs.push(song);
-          console.log(this.songs)
-        })
-      }
-    )
+  private getAllSongs() {
+    this.songsListService.getAllSongs().subscribe({
+      next: (songsRequest) => { this.songs = songsRequest; },
+      error: (error) => { console.log(error); }
+    })
   }
+
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Canciones } from '../model/canciones.model';
+import { Song } from 'src/app/entities/song/model/song.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,13 @@ export class PlayerService {
   ) { 
 
   }
-public getAllSongs(): Observable<Canciones[]>{
+public getAllSongs(): Observable<Song[]>{
   const urlEndPoint: string = this.url + 'songs';
-  return this.http.get<Canciones[]>(urlEndPoint)
+  return this.http.get<Song[]>(urlEndPoint)
 }
-  public getOneSong(id: number): Observable<Canciones> {
+  public getOneSong(id: number): Observable<Song> {
     const urlEndPoint: string = this.url + `song/${id}` ; 
     console.log(urlEndPoint);
-    return this.http.get<Canciones>(urlEndPoint);
+    return this.http.get<Song>(urlEndPoint);
   }
 }

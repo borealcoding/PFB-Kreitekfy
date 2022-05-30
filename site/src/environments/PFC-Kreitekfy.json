@@ -45,7 +45,7 @@
       "responses": [
         {
           "uuid": "e8b5135e-5486-4ee4-8a99-381fb08f6874",
-          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\",\n    \"albumImage\": \"image/jpg\"\n  }\n}",
+          "body": "[\n  {\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\",\n    \"albumImage\": \"image/jpg\"\n  }\n}\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -75,7 +75,7 @@
       "responses": [
         {
           "uuid": "d61fbc6a-8b75-448e-b31d-b4368ad2c17a",
-          "body": "{\n  \"id\": 1,\n  \"name\": \"lorem ipsum\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artist\": {\n    \"artistId\": 1,\n    \"artistName\": \"lorem ipsum\"\n  },\n  \"album\": {\n    \"albumId\": 1,\n    \"albumName\": \"lorem ipsum\",\n    \"totalSongs\": 10,\n    \"releaseDate\": \"15-03-2015\"\n  }\n}",
+          "body": "{\n  \"id\": 1,\n  \"name\": \"House of the wolves\",\n  \"duration\": 150000,\n  \"releaseDate\": \"15-04-2005\",\n  \"likes\": 1500,\n  \"playedTimes\": 2000,\n  \"artistId\": 1,\n  \"artistName\": \"lorem ipsum\",\n  \"albumId\": 1,\n  \"albumName\": \"lorem ipsum\",\n  \"totalSongs\": 10,\n  \"albumReleaseDate\": \"15-03-2015\",\n  \"albumImage\": \"image/jpg\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",

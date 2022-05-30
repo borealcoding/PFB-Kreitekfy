@@ -1,23 +1,43 @@
-<div
-  *ngFor="let song of songs"
-  id="card"
-  class="card"
-  data-bs-toggle="modal"
-  data-bs-target="#exampleModal"
->
-  <div id="image-body">
-    <img
-      id="albumImage"
-      src="https://m.media-amazon.com/images/I/91Z82BKqrSL._SL1500_.jpg"
-      class="card-img-top"
-      alt="album-image"
-    />
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">{{ song.name }}</h5>
-    <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quidem,
-      doloremque, quisquam.
-    </p>
-  </div>
-</div>
+<h1>Lista de canciones</h1>
+
+<table *ngIf="songs.length > 0">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Duration</th>
+    <th>Release date</th>
+    <th>Likes</th>
+    <th>Played times</th>
+    <th>Artist id</th>
+    <th>Artist name</th>
+    <th>Album id</th>
+    <th>Album name</th>
+    <th>Total songs</th>
+    <th>Album release date</th>
+    <th>Album image</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let song of songs">
+      <td>{{ song.id }}</td>
+      <td>{{ song.name }}</td>
+      <td>{{ song.duration }}</td>
+      <td>{{ song.releaseDate }}</td>
+      <td>{{ song.likes }}</td>
+      <td>{{ song.playedTimes }}</td>
+      <td>{{ song.artistId }}</td>
+      <td>{{ song.artistName }}</td>
+      <td>{{ song.albumId }}</td>
+      <td>{{ song.albumName }}</td>
+      <td>{{ song.totalSongs }}</td>
+      <td>{{ song.albumReleaseDate }}</td>
+      <td>
+        <img [src]="'data:image/webp;base64,'+ song.albumImage" alt="album-image">
+      </td>
+      <td>
+        <button id="navToEditSong">Editar</button>
+        <button id="navToDeleteSong">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
