@@ -7,4 +7,5 @@ import java.util.List;
 public interface ArtistPersistence {
     List<Artist> getAllArtist();
     Artist saveArtist(Artist artist);
+    List<Artist> getArtistByName(String partialArtistName);
 }

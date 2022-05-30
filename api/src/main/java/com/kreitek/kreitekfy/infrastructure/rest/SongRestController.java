@@ -35,6 +35,16 @@ public class SongRestController {
         return new ResponseEntity<>(songSaved,HttpStatus.CREATED);
     }
     @CrossOrigin
+    @PatchMapping(value = "/songs", produces = "application/json", consumes = "application/json")
+    public ResponseEntity <SongDTO> updatetSong(@RequestBody SongDTO songDTO){
+        SongDTO songSaved= this.songService.saveSong(songDTO);
+        return new ResponseEntity<>(songSaved,HttpStatus.OK);
+    }
+
+
+
+
+    @CrossOrigin
     @GetMapping(value = "/songs/{songId}")
     public ResponseEntity<SongDTO>getSongById(@PathVariable Long songId){
         Optional<SongDTO> song= this.songService.getSongById(songId);

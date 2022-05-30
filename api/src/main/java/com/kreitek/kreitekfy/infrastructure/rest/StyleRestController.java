@@ -19,12 +19,7 @@ public class StyleRestController {
     public StyleRestController(StyleService styleService) {
         this.styleService = styleService;
     }
-    @CrossOrigin
-    @GetMapping(value = "/styles", produces = "application/json")
-    public ResponseEntity<List<StyleDTO>>getAllStyles(){
-        List<StyleDTO> styleDTOS=this.styleService.getAllStyles();
-        return new ResponseEntity<>(styleDTOS, HttpStatus.OK);
-    }
+
     @CrossOrigin
     @PostMapping(value = "/styles", produces = "application/json", consumes = "application/json")
     ResponseEntity<StyleDTO> insertUser(@RequestBody StyleDTO styleDTO) {
@@ -42,5 +37,18 @@ public class StyleRestController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/styles", produces = "application/json")
+    ResponseEntity<List<StyleDTO>> getStylesPartialName(@RequestParam(name = "partialName", required = false) String partialStyleName) {
+        List<StyleDTO> styles;
+
+        if (partialStyleName == null) {
+            styles = styleService.getAllStyles();
+        } else {
+            styles = this.styleService.getAllStylesByPartialName(partialStyleName);
+        }
+        return new ResponseEntity<>(styles, HttpStatus.OK);
     }
 }

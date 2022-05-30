@@ -7,4 +7,6 @@ import java.util.List;
 public interface AlbumPersistence {
     List<Album> getAllAlbums();
     Album saveAlbum(Album album);
+
+    List<Album> getAlbumsByName(String partialAlbumName);
 }
