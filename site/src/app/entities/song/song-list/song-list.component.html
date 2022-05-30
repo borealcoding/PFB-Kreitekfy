@@ -32,7 +32,7 @@
       <td>{{ song.totalSongs }}</td>
       <td>{{ song.albumReleaseDate }}</td>
       <td>
-        <img [src]="'data:image/webp;base64,'+ song.albumImage" alt="album-image">
+        <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.albumImage" alt="album-image">
       </td>
       <td>
         <button id="navToEditSong">Editar</button>
@@ -41,3 +41,9 @@
     </tr>
   </tbody>
 </table>
+
+<div class="botoneraPaginacion">
+  <button [disabled]="first" class="btn btn-secondary btnAtras" (click)="previousPage()">Anterior</button>
+  <span>Pagina {{( page+1 )}} de {{ totalPages }} - Elementos totales: {{ totalElements }}</span>
+  <button [disabled]="last" class="btn btn-secondary btnSiguiente" (click)="nextPage()">Siguiente</button>
+</div>
