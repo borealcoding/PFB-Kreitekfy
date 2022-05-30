@@ -36,5 +36,9 @@ out/
 ### VS Code ###
 .vscode/
 
+<<<<<<< HEAD
 ## KREITEK DB ###
+=======
+### DATABASE ###
+>>>>>>> 1dd7f5c0051d006c1806c5f28b71a726528cf80a
 kreitekfy.mv.db

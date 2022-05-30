@@ -36,4 +36,11 @@ public class AlbumServiceImpl implements AlbumService {
         Album album= this.albumPersistence.saveAlbum(this.albumMapper.toEntity(albumDTO));
         return this.albumMapper.toDto(album);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<AlbumDTO> getAllAlbumsByPartialName(String partialAlbumName) {
+        List<Album> albums = this.albumPersistence.getAlbumsByName(partialAlbumName);
+        return albumMapper.toDto(albums);
+    }
 }

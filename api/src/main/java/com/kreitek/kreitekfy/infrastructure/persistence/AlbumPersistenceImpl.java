@@ -27,4 +27,9 @@ public class AlbumPersistenceImpl implements AlbumPersistence {
     public Album saveAlbum(Album album) {
         return this.albumRepository.save(album);
     }
+
+    @Override
+    public List<Album> getAlbumsByName(String partialAlbumName) {
+        return this.albumRepository.findByNameContainsIgnoreCase(partialAlbumName);
+    }
 }

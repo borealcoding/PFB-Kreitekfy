@@ -48,4 +48,11 @@ public class SongPersistenceImpl implements SongPersistence {
         SongSpecification songSpecification= new SongSpecification(SearchCriteriaHelper.fromFilterString(filter));
         return this.songRepository.findAll(songSpecification,pageable);
     }
+
+
+
+    @Override
+    public List<Song> getSongsByName(String partialSongName) {
+        return this.songRepository.findByNameContainsIgnoreCase(partialSongName);
+    }
 }

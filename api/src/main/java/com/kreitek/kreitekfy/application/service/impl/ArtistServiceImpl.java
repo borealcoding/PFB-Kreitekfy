@@ -36,4 +36,11 @@ public class ArtistServiceImpl implements ArtistService {
         Artist artist = this.artistPersistence.saveArtist(this.artistMapper.toEntity(artistDTO));
         return this.artistMapper.toDto(artist);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ArtistDTO> getAllArtistByPartialName(String partialArtistName) {
+        List<Artist> artists = this.artistPersistence.getArtistByName(partialArtistName);
+        return artistMapper.toDto(artists);
+    }
 }

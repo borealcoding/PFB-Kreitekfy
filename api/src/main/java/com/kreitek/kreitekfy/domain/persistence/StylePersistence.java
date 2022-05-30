@@ -1,7 +1,5 @@
 package com.kreitek.kreitekfy.domain.persistence;
 
-
-
 import com.kreitek.kreitekfy.domain.entity.Style;
 
 import java.util.List;
@@ -12,5 +10,5 @@ public interface StylePersistence {
     Optional<Style> getStyleById(Long styleId);
     Style saveStyle(Style style);
 
-    List<Style> getCategoriesByName(String partialStyleName);
+    List<Style> getStylesByName(String partialStyleName);
 }

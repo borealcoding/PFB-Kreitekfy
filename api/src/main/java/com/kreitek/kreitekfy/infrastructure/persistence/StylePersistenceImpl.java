@@ -37,7 +37,7 @@ public class StylePersistenceImpl implements StylePersistence {
     }
 
     @Override
-    public List<Style> getCategoriesByName(String partialStyleName) {
+    public List<Style> getStylesByName(String partialStyleName) {
 
         return this.styleRepository.findByNameContainsIgnoreCase(partialStyleName);
     }

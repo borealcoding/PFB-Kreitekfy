@@ -15,4 +15,6 @@ public interface SongPersistence {
     Song saveSong(Song song);
     void deleteSong(Long songId);
     Page<Song> findAll(Pageable pageable, String filter);
+
+    List<Song> getSongsByName(String partialName);
 }

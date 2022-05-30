@@ -22,18 +22,21 @@ public class SongRestController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/allsongs",produces="application/json")//sin paginación
-    public ResponseEntity<List<SongDTO>> getAllSongs(){
-        List<SongDTO> songDTOS=songService.getAllSongs();
-        return new ResponseEntity<>(songDTOS, HttpStatus.OK);
-
-    }
-    @CrossOrigin
     @PostMapping(value = "/songs", produces = "application/json", consumes = "application/json")
     public ResponseEntity <SongDTO> insertSong(@RequestBody SongDTO songDTO){
         SongDTO songSaved= this.songService.saveSong(songDTO);
         return new ResponseEntity<>(songSaved,HttpStatus.CREATED);
     }
+    @CrossOrigin
+    @PatchMapping(value = "/songs", produces = "application/json", consumes = "application/json")
+    public ResponseEntity <SongDTO> updatetSong(@RequestBody SongDTO songDTO){
+        SongDTO songSaved= this.songService.saveSong(songDTO);
+        return new ResponseEntity<>(songSaved,HttpStatus.OK);
+    }
+
+
+
+
     @CrossOrigin
     @GetMapping(value = "/songs/{songId}")
     public ResponseEntity<SongDTO>getSongById(@PathVariable Long songId){
@@ -56,6 +59,20 @@ public class SongRestController {
     public ResponseEntity<Page<SongDTO>> getAllSongsPaged(@RequestParam(value = "filter", required = false) String filter,Pageable pageable){
         Page<SongDTO> songDTOS= songService.getSongPaged(pageable,filter);
         return new ResponseEntity<Page<SongDTO>>(songDTOS, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/song",produces="application/json")//sin paginación
+    public ResponseEntity<List<SongDTO>> getSongsPartialName(@RequestParam(name = "partialName", required = false) String partialName){
+        List<SongDTO> songs;
+
+        if (partialName == null) {
+            songs = this.songService.getAllSongs();
+        } else {
+            songs = this.songService.getAllSongsByPartialName(partialName);
+        }
+        return new ResponseEntity<>(songs, HttpStatus.OK);
+
     }
 
 }

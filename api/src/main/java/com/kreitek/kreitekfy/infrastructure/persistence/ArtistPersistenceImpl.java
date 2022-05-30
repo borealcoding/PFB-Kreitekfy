@@ -26,4 +26,9 @@ public class ArtistPersistenceImpl implements ArtistPersistence {
     public Artist saveArtist(Artist artist) {
         return this.artistRepository.save(artist);
     }
+
+    @Override
+    public List<Artist> getArtistByName(String partialArtistName) {
+        return this.artistRepository.findByNameContainsIgnoreCase(partialArtistName);
+    }
 }
