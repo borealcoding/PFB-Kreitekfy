@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Song } from '../model/song.model';
 import { SongListService } from './services/song-list.service';
 
@@ -9,10 +8,9 @@ import { SongListService } from './services/song-list.service';
   styleUrls: ['./song-list.component.scss']
 })
 export class SongListComponent implements OnInit {
-
   songs: Song[] = [];
   page: number = 0;
-  size: number = 5;
+  size: number = 25;
   sort: string = 'releaseDate,desc';
   first: boolean = false;
   last: boolean = false;
@@ -20,10 +18,20 @@ export class SongListComponent implements OnInit {
   totalPages: number = 0;
   totalElements: number = 0;
 
+  nameFilter?: string;
+  artistNameFilter?: string;
+  albumNameFilter?: string;
+  styleNameFilter?: string;
 
-  constructor(private route: ActivatedRoute, private songsListService: SongListService) { }
+  songIdToDelete?: number;
+
+  constructor(private songsListService: SongListService) { }
 
   ngOnInit(): void {
+    this.getAllSongs();
+  }
+
+  public searchByFilters(): void {
     this.getAllSongs();
   }
 
@@ -36,7 +44,7 @@ export class SongListComponent implements OnInit {
         this.totalPages = data.totalPages;
         this.totalElements = data.totalElements;
       },
-      error: (error) => { console.log(error); }
+      error: (error) => { this.handleError(error) }
     })
   }
 
@@ -48,6 +56,25 @@ export class SongListComponent implements OnInit {
   public previousPage(): void {
     this.page = this.page - 1;
     this.getAllSongs();
+  }
+
+  public prepareSongToDelete(songId: number): void {
+    this.songIdToDelete = songId;
+  }
+
+  public deleteSong(): void {
+    if (this.songIdToDelete) {
+      this.songsListService.deleteSong(this.songIdToDelete).subscribe({
+        next: (data) => {
+          this.getAllSongs();
+        },
+        error: (error) => { this.handleError(error) }
+      })
+    }
+  }
+
+  public handleError(error: any): void {
+    console.log(error);
   }
 
 }
