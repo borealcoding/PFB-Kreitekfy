@@ -51,8 +51,8 @@ public class SongServiceImpl implements SongService {
         this.songPersistence.deleteSong(songId);
     }
     @Override
-    public Page<SongDTO> getSongPaged(Pageable pageable) {
-        Page<Song> SongPage = this.songPersistence.findAll(pageable)  ;
+    public Page<SongDTO> getSongPaged(Pageable pageable,String filter) {
+        Page<Song> SongPage = this.songPersistence.findAll(pageable,filter)  ;
         return SongPage.map(songMapper::toDto);
     }
 }

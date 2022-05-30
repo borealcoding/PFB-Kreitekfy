@@ -35,4 +35,10 @@ public class StylePersistenceImpl implements StylePersistence {
 
         return  this.styleRepository.save(style);
     }
+
+    @Override
+    public List<Style> getCategoriesByName(String partialStyleName) {
+
+        return this.styleRepository.findByNameContainsIgnoreCase(partialStyleName);
+    }
 }

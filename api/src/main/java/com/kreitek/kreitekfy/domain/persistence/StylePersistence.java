@@ -11,4 +11,6 @@ public interface StylePersistence {
     List<Style> getAllStyle();
     Optional<Style> getStyleById(Long styleId);
     Style saveStyle(Style style);
+
+    List<Style> getCategoriesByName(String partialStyleName);
 }

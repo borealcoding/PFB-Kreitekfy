@@ -2,6 +2,8 @@ package com.kreitek.kreitekfy.infrastructure.persistence;
 
 import com.kreitek.kreitekfy.domain.entity.Song;
 import com.kreitek.kreitekfy.domain.persistence.SongPersistence;
+import com.kreitek.kreitekfy.infrastructure.specs.SongSpecification;
+import com.kreitek.kreitekfy.infrastructure.specs.shared.SearchCriteriaHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,8 +44,8 @@ public class SongPersistenceImpl implements SongPersistence {
 
     }
     @Override
-    public Page<Song> findAll(Pageable pageable) {
-
-        return this.songRepository.findAll(pageable);
+    public Page<Song> findAll(Pageable pageable,String filter) {
+        SongSpecification songSpecification= new SongSpecification(SearchCriteriaHelper.fromFilterString(filter));
+        return this.songRepository.findAll(songSpecification,pageable);
     }
 }
