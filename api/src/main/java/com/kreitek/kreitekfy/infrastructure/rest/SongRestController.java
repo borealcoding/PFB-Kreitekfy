@@ -3,6 +3,8 @@ package com.kreitek.kreitekfy.infrastructure.rest;
 import com.kreitek.kreitekfy.application.dto.SongDTO;
 import com.kreitek.kreitekfy.application.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,7 @@ public class SongRestController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/songs",produces="application/json")
+    @GetMapping(value = "/allsongs",produces="application/json")//sin paginación
     public ResponseEntity<List<SongDTO>> getAllSongs(){
         List<SongDTO> songDTOS=songService.getAllSongs();
         return new ResponseEntity<>(songDTOS, HttpStatus.OK);
@@ -48,6 +50,12 @@ public class SongRestController {
         this.songService.deleteSong(songId);
         return new ResponseEntity<>(HttpStatus.OK);
 
+    }
+    @CrossOrigin
+    @GetMapping(value = "/songs",produces="application/json")//con paginacion
+    public ResponseEntity<Page<SongDTO>> getAllSongsPaged(Pageable pageable){
+        Page<SongDTO> songDTOS= songService.getSongPaged(pageable);
+        return new ResponseEntity<Page<SongDTO>>(songDTOS, HttpStatus.OK);
     }
 
 }

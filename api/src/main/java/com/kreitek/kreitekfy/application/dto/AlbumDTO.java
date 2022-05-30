@@ -17,6 +17,9 @@ public class AlbumDTO implements Serializable {
 
     private Long artistId;
     private String artistName;
+
+
+
     /*private Long styleId;
     private String styleName;*/
 
@@ -54,6 +57,8 @@ public class AlbumDTO implements Serializable {
     public void setSongs(List<SongDTO> songs) {
         this.songs = songs;
     }
+
+
 
     /*public Long getSongId() {
         return songId;

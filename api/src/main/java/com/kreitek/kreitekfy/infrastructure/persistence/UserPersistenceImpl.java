@@ -10,7 +10,9 @@ import java.util.Optional;
 
 @Repository
 public class UserPersistenceImpl implements UserPersistence {
+
     private final  UserRepository userRepository;
+
     @Autowired
     public UserPersistenceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -21,9 +23,9 @@ public class UserPersistenceImpl implements UserPersistence {
        List<User>users=this.userRepository.findAll();
        return users;
     }
-
     @Override
     public Optional<User> getUserById(Long userId) {
+
         return this.userRepository.findById(userId);
     }
 
