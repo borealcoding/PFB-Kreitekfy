@@ -15,4 +15,5 @@ public interface SongService {
     void deleteSong(Long songId);
     Page<SongDTO> getSongPaged(Pageable pageable,String filter);
 
+    List<SongDTO> getAllSongsByPartialName(String partialName);
 }

@@ -55,4 +55,10 @@ public class SongServiceImpl implements SongService {
         Page<Song> SongPage = this.songPersistence.findAll(pageable,filter)  ;
         return SongPage.map(songMapper::toDto);
     }
+
+    @Override
+    public List<SongDTO> getAllSongsByPartialName(String partialName) {
+        List<Song> songs = this.songPersistence.getSongsByName(partialName);
+        return songMapper.toDto(songs);
+    }
 }

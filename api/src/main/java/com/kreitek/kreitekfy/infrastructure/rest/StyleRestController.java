@@ -45,7 +45,7 @@ public class StyleRestController {
         List<StyleDTO> styles;
 
         if (partialStyleName == null) {
-            styles = styleService.getAllStyles();
+            styles = this.styleService.getAllStyles();
         } else {
             styles = this.styleService.getAllStylesByPartialName(partialStyleName);
         }

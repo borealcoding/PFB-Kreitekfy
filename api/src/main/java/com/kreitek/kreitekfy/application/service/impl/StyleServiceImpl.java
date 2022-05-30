@@ -42,7 +42,7 @@ public class StyleServiceImpl implements StyleService {
     @Override
     @Transactional(readOnly = true)
     public Optional<StyleDTO> getStyleById(Long styleId) {
-          return  this.stylePersistence.getStyleById(styleId).map(styleMapper::toDto);
+          return this.stylePersistence.getStyleById(styleId).map(styleMapper::toDto);
     }
 
     @Override

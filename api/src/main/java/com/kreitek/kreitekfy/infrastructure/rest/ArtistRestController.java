@@ -33,7 +33,7 @@ public class ArtistRestController {
         List<ArtistDTO> artist;
 
         if (partialArtistName == null) {
-            artist = artistService.getAllArtist();
+            artist = this.artistService.getAllArtist();
         } else {
             artist = this.artistService.getAllArtistByPartialName(partialArtistName);
         }
