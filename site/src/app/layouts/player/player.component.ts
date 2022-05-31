@@ -52,10 +52,6 @@ export class PlayerComponent implements OnInit {
     })
 
     this.songService.getAllSongs(this.page, this.size, this.sortByPlayedTimes).subscribe({
-<<<<<<< HEAD
-
-=======
->>>>>>> 876a5c023d3334b49e8215752a972612d9e1307c
 
       next: (data: any) => {
         this.songsByPlayedtimes = data.content;

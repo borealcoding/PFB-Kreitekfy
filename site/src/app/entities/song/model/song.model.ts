@@ -11,14 +11,8 @@ export class Song {
     albumId?: number;
     albumName?: string;
     image: string;
-<<<<<<< HEAD
-    styleId: number;
-    styleName: string;
-  
-=======
     styleId?: number;
     styleName?: string;
->>>>>>> dbe4d5cb9a11631fbff83944e16f4c3ba9eac6d9
 
     constructor() {
         this.id = 0;
