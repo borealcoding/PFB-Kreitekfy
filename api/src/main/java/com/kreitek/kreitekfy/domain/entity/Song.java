@@ -23,6 +23,9 @@ public class Song {
     @Column(name = "likes")
     private Integer likes;
 
+    @Column(name = "count_rate")
+    private Integer countRate;
+
     @Column(name="release_date")
     private Date releaseDate;
 
@@ -71,6 +74,14 @@ public class Song {
 
     public void setLikes(Integer likes) {
         this.likes = likes;
+    }
+
+    public Integer getCountRate() {
+        return countRate;
+    }
+
+    public void setCountRate(Integer countRate) {
+        this.countRate = countRate;
     }
 
     public Date getReleaseDate() {

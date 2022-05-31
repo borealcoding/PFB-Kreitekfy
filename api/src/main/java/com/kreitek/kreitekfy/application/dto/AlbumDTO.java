@@ -10,7 +10,7 @@ public class AlbumDTO implements Serializable {
     private Long id;
     private String name;
     private byte[] image;
-    List<SongDTO> songs;
+   /* List<SongDTO> songs;
 
     /*private Long songId;
     private String songName;*/
@@ -50,7 +50,7 @@ public class AlbumDTO implements Serializable {
         this.image = image;
     }
 
-    public List<SongDTO> getSongs() {
+   /* public List<SongDTO> getSongs() {
         return songs;
     }
 

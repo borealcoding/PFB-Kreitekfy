@@ -8,6 +8,7 @@ public class SongDTO implements Serializable {
     private Long id;
     private String name;
     private Integer duration;
+    private Integer countRate;
     private Integer likes;
     private Date releaseDate;
     private Integer playedTimes;
@@ -59,6 +60,14 @@ public class SongDTO implements Serializable {
 
     public void setLikes(Integer likes) {
         this.likes = likes;
+    }
+
+    public Integer getCountRate() {
+        return countRate;
+    }
+
+    public void setCountRate(Integer countRate) {
+        this.countRate = countRate;
     }
 
     public Date getReleaseDate() {

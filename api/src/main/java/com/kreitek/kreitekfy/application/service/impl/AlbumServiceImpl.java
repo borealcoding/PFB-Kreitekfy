@@ -38,6 +38,14 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
+    @Transactional
+    public List<AlbumDTO> getAlbumFiltered(String filter) {
+        List<Album> albums=this.albumPersistence.findAll(filter);
+        return this.albumMapper.toDto(albums);
+
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<AlbumDTO> getAllAlbumsByPartialName(String partialAlbumName) {
         List<Album> albums = this.albumPersistence.getAlbumsByName(partialAlbumName);
