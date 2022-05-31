@@ -51,7 +51,7 @@
       </div>
       <div class="col-6">
         <div>
-          <p-rating [(ngModel)]="val" (click)="Valorar()"></p-rating>
+          <p-rating [ngModel]="val"  [stars] ="4" [cancel]="false"></p-rating>
           {{val}}
           {{song.countRate}}
         </div>
