@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface AlbumService {
     List<AlbumDTO> getAllAlbums();
     AlbumDTO saveAlbum(AlbumDTO albumDTO);
+
+    List<AlbumDTO> getAllAlbumsByPartialName(String partialAlbumName);
 }

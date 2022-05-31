@@ -14,9 +14,10 @@ export class PlayerComponent implements OnInit {
   constructor(private songListService: SongListService) { }
 
   ngOnInit(): void {
-    this.getAllSongs();
+    //this.getAllSongs();
   }
 
+<<<<<<< HEAD
   public getAllSongs() {
     this.songListService.getAllSongs().subscribe(
       (data) => {
@@ -27,4 +28,16 @@ export class PlayerComponent implements OnInit {
       }
     )
   }
+=======
+  // public getAllSongs() {
+  //   this.songListService.getAllSongs().subscribe(
+  //     (data) => {
+  //       data.forEach((song) => {
+  //         this.songs.push(song);
+  //         console.log(this.songs)
+  //       })
+  //     }
+  //   )
+  // }
+>>>>>>> 570dab64c1cf21a7c772c71efed4cf42649526a8
 }
