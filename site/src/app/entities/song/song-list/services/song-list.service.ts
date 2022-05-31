@@ -16,7 +16,6 @@
 //     let urlEndPoint: string = this.url + 'songs?page=' + page + '&size=' + size + '&sort=' + sort;
 //     return this.http.get<Song[]>(urlEndPoint);
 //   }
-
 //   public deleteSong(songIdToDelete: number): Observable<any> {
 //     let urlEndPoint: string = this.url + 'songs/' + songIdToDelete;
 //     return this.http.delete<any>(urlEndPoint);

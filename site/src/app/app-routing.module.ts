@@ -5,6 +5,7 @@ import { SongListComponent } from './entities/song/song-list/song-list.component
 import { UserAdminComponent } from './entities/user/user-admin/user-admin.component';
 import { UserListComponent } from './entities/user/user-list/user-list.component';
 import { PlayerComponent } from './layouts/player/player.component';
+import { CardSongComponent } from './layouts/cards/card-song/card-song.component';
 
 const routes: Routes = [
   { path: '', component: UserListComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'admin', component: UserAdminComponent },
   { path: 'user', component: PlayerComponent },
   { path: 'song-list', component: SongListComponent },
-  { path: 'song-form/:id', component: SongFormComponent }
+  { path: 'song-form/:id', component: SongFormComponent },
+  { path: 'songs/:songId', component: CardSongComponent }
 ];
 
 @NgModule({

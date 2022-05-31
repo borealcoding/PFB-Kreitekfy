@@ -17,12 +17,8 @@ export class PlayerService {
 
   }
 public getAllSongs(): Observable<Song[]>{
-  const urlEndPoint: string = this.url + 'songs';
+  const urlEndPoint: string = this.url + 'allsongs';
   return this.http.get<Song[]>(urlEndPoint)
 }
-  public getOneSong(id: number): Observable<Song> {
-    const urlEndPoint: string = this.url + `song/${id}` ; 
-    console.log(urlEndPoint);
-    return this.http.get<Song>(urlEndPoint);
-  }
+ 
 }
