@@ -1,124 +1,79 @@
-<!-- <div id="container">
-  <h1>Mantenimiento de CANCIONES</h1>
-  <section id="form" *ngIf="song">
-    <section id="songInputs">
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">ID</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="ID"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Name</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Name"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Duration</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Duration"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Release date</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Release date"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Likes</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Likes"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Played times</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Played times"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-    </section>
-    <section id="artistInputs">
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Artist ID</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Artist ID"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Artist name</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Artist name"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-    </section>
-    <section id="albumInputs">
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Album ID</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Album ID"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Album name</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Album name"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-    </section>
-    <section id="styleInputs">
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Style ID</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Album ID"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Style name</span>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Album ID"
-          aria-describedby="addon-wrapping"
-        />
-      </div>
-    </section>
-    <section>
-      <button (click)="createSong(song)" class="btn btn-primary">Crear canción</button>
-    </section>
-  </section>
-</div> -->
+<h1>Formulario de canción con id {{ id }}</h1>
+
+<h2>Operación seleccionada {{ mode }}</h2>
+
+<form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" [(ngModel)]="song.name" name="name" class="form-control" id="name" #name="ngModel" required minlength="3" maxlength="100">
+    </div>
+
+    <div *ngIf="(name.dirty && name.errors)">
+        <small class="form-text text-danger" *ngIf="name.errors['required']">Este campo es requerido!</small>
+        <small class="form-text text-danger" *ngIf="name.errors['minlength']">El nombre debe tener al menos 3 caracteres!</small>
+        <small class="form-text text-danger" *ngIf="name.errors['maxlength']">El nombre no puede tener más de 100 caracteres!</small>
+    </div>
+
+    <div class="form-group">
+        <label for="duration">Duración</label>
+        <input type="number" [(ngModel)]="song.duration" name="duration" class="form-control" id="duration" #duration="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="likes">Likes</label>
+        <input type="number" [(ngModel)]="song.likes" name="likes" class="form-control" id="likes" #likes="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="releaseDate">Fecha de lanzamiento</label>
+        <input type="date" [(ngModel)]="song.releaseDate" name="releaseDate" class="form-control" id="releaseDate" #releaseDate="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="playedTimes">Veces reproducida</label>
+        <input type="number" [(ngModel)]="song.playedTimes" name="playedTimes" class="form-control" id="playedTimes" #playedTimes="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="artistId">Id del artista</label>
+        <input type="number" [(ngModel)]="song.artistId" name="artistId" class="form-control" id="artistId" #artistId="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="artistName">Nombre del artista</label>
+        <input type="text" [(ngModel)]="song.artistName" name="artistName" class="form-control" id="artistName" #artistName="ngModel" required>
+    </div>
+
+    <div *ngIf="(artistName.dirty && artistName.errors)">
+        <small class="form-text text-danger" *ngIf="artistName.errors['required']">Este campo es requerido!</small>
+    </div>
+
+    <div class="form-group">
+        <label for="albumId">Id del álbum</label>
+        <input type="number" [(ngModel)]="song.albumId" name="albumId" class="form-control" id="albumId" #albumId="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="albumName">Nombre del álbum</label>
+        <input type="text" [(ngModel)]="song.albumName" name="albumName" class="form-control" id="albumName" #albumName="ngModel" required>
+    </div>
+
+    <div *ngIf="(albumName.dirty && albumName.errors)">
+        <small class="form-text text-danger" *ngIf="albumName.errors['required']">Este campo es requerido!</small>
+    </div>
+
+    <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="text" [(ngModel)]="song.image" name="image" class="form-control" id="image" #image="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="styleId">Id del estilo</label>
+        <input type="number" [(ngModel)]="song.styleId" name="styleId" class="form-control" id="styleId" #styleId="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="styleName">Nombre del estilo</label>
+        <input type="text" [(ngModel)]="song.styleName" name="styleName" class="form-control" id="styleName" #styleName="ngModel" required>
+    </div>
+
+    <div *ngIf="(styleName.dirty && styleName.errors)">
+        <small class="form-text text-danger" *ngIf="styleName.errors['required']">Este campo es requerido!</small>
+    </div>
+
+    <div class="buttonsForm">
+        <button class="btn btn-primary" (click)="saveSong()" [disabled]="songForm.invalid">Guardar</button>
+    </div>
+</form>

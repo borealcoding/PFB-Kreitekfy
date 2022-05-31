@@ -15,7 +15,6 @@ import { SongComponent } from './entities/song/song.component';
 import { AlbumComponent } from './entities/album/album.component';
 import { StyleComponent } from './entities/style/style.component';
 import { ArtistComponent } from './entities/artist/artist.component';
-import { BackofficeComponent } from './layouts/backoffice/backoffice.component';
 import { UserListComponent } from './entities/user/user-list/user-list.component';
 import { UserAdminComponent } from './entities/user/user-admin/user-admin.component';
 import { SongListComponent } from './entities/song/song-list/song-list.component';
@@ -35,7 +34,6 @@ import { HttpRequestIntercept } from './config/interceptors/http-request-interce
     AlbumComponent,
     StyleComponent,
     ArtistComponent,
-    BackofficeComponent,
     UserListComponent,
     UserAdminComponent,
     SongListComponent,

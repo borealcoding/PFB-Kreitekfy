@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  dev:"http://localhost:3001/"
+  dev:"http://localhost:8080/kreitekfy/"
   // poner kreitekfy/  para usar postman
 };
 

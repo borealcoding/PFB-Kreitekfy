@@ -16,77 +16,87 @@
 
     <div class="row">
       <div
-        *ngFor="let song of songs"
+        *ngFor="let song of songsByReleaseDate"
         id="card"
         class="card"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
       >
         <div id="image-body">
           <img
             id="albumImage"
-            src="https://m.media-amazon.com/images/I/91Z82BKqrSL._SL1500_.jpg"
+            [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
             class="card-img-top"
             alt="album-image"
+            [routerLink]="['/songs', song.id]"
           />
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ song.name }}</h5>
           <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            quidem, doloremque, quisquam.
+         {{song.releaseDate}}
           </p>
         </div>
       </div>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div
-            class="modal-content"
-            style="background-color: #373737bd; height: 800px"
-          >
-            <div class="modal-header" style="border: none">
-              <h5 class="modal-title" id="exampleModalLabel">Titulo Cancion</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row" style="height: 40%">
-                <div class="col-5">
-                  <img
-                    src="https://m.media-amazon.com/images/I/91Z82BKqrSL._SL1500_.jpg"
-                    class="card-img-top"
-                  />
-                </div>
-                <div class="col-7"></div>
-              </div>
-              <div class="row" style="height: 10%"></div>
-              <div class="row" style="height: 50%"></div>
-            </div>
-            <div class="modal-footer" style="border: none"></div>
-          </div>
-        </div>
-      </div>
+      
     </div>
     <div class="row" style="justify-content: space-between">
       <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
         Lo mas escuchado
       </h3>
+
+      <div class="row">
+        <div
+          *ngFor="let song of songsByPlayedtimes"
+          id="card"
+          class="card"
+        >
+          <div id="image-body">
+            <img
+              id="albumImage"
+              [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+              class="card-img-top"
+              alt="album-image"
+              [routerLink]="['/songs', song.id]"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ song.name }}</h5>
+            <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
+           {{song.playedTimes}}
+            </p>
+          </div>
+        </div>
+        
+      </div>
     </div>
     <div class="row"></div>
     <div class="row" style="justify-content: space-between">
       <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
         Lo mejor valorado
       </h3>
+
+      <div class="row">
+        <div
+          *ngFor="let song of songsByLikes"
+          id="card"
+          class="card"
+        >
+          <div id="image-body">
+          
+            <img
+              id="albumImage"
+              [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+              class="card-img-top"
+              alt="album-image"
+              [routerLink]="['/songs', song.id]"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ song.name }}</h5>
+            <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
+           {{song.likes}}
+            </p>
+          </div>
+        </div>
     </div>
     <div class="row"></div>
   </div>

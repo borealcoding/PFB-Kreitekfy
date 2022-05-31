@@ -14,18 +14,18 @@ export class SongComponent implements OnInit {
   constructor(private songService: SongService) { }
 
   ngOnInit(): void {
-    this.getAllSongs();
+    //this.getAllSongs();
   }
 
-  public getAllSongs(){
-    this.songService.getAllSongs().subscribe(
-      (data) =>{
-        data.forEach((song)=>{
-          this.songs.push(song);
-          console.log(this.songs)
-        }) 
-      }
-    )
-  }
+  // public getAllSongs(){
+  //   this.songService.getAllSongs().subscribe(
+  //     (data) =>{
+  //       data.forEach((song)=>{
+  //         this.songs.push(song);
+  //         console.log(this.songs)
+  //       }) 
+  //     }
+  //   )
+  // }
 
 }

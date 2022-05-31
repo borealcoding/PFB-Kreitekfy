@@ -1,5 +1,9 @@
 <h1>Lista de canciones</h1>
 
+<div class="col-12 col-md-3">
+  <button id="btnAddSong" [routerLink]="['/song-form', 'new']" class="btn btn-secondary">Añadir una nueva canción</button>
+</div>
+
 <table *ngIf="songs.length > 0">
   <thead>
     <th>Id</th>
@@ -32,12 +36,37 @@
       <td>{{ song.totalSongs }}</td>
       <td>{{ song.albumReleaseDate }}</td>
       <td>
-        <img [src]="'data:image/webp;base64,'+ song.albumImage" alt="album-image">
+        <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.image" alt="album-image" style="width: 50px; height: 50px;">
       </td>
       <td>
-        <button id="navToEditSong">Editar</button>
-        <button id="navToDeleteSong">Eliminar</button>
+        <button id="navToEditSong" [routerLink]="['/song-form',song.id]">Editar</button>
+        <button id="navToDeleteSong" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="prepareSongToDelete(song.id!)">Eliminar</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<div class="pageNavButtons">
+  <button [disabled]="first" class="btn btn-secondary btnAtras" (click)="previousPage()">Anterior</button>
+  <span>Pagina {{( page+1 )}} de {{ totalPages }} - Elementos totales: {{ totalElements }}</span>
+  <button [disabled]="last" class="btn btn-secondary btnSiguiente" (click)="nextPage()">Siguiente</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="askConfirmationDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Confirmación de borrado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: black;">
+        Vas a borrar esta canción, ¿Estás seguro/a?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteSong()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
