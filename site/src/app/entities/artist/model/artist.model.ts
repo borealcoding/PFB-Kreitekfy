@@ -1,6 +1,6 @@
 export class Artist {
     id: number | undefined;
-    name: string;
+    name?: string;
     styleId?: number;
     styleName?: string;
 
@@ -8,7 +8,7 @@ export class Artist {
 
   constructor(
     id: number , 
-    name: string, 
+    name?: string, 
     styleId?: number, 
     styleName?: string
 ) {

@@ -46,21 +46,8 @@
         <input type="number" [(ngModel)]="song.playedTimes" name="playedTimes" class="form-control" id="playedTimes"
             #playedTimes="ngModel">
     </div>
-
-
-    <!-- <div class="form-group">
-        <label for="artistId">Id del artista</label>
-        <input type="number" [(ngModel)]="song.artistId" name="artistId" class="form-control" id="artistId" #artistId="ngModel">
-    </div> -->
-
-    <!-- Autocompletado selección artista para canción -->
-    <!-- <div class="form-group">
-        <label for="artistId">Artista</label>
-        <p-autoComplete [(ngModel)]="selectedArtist" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
-    </div> -->
-
-
     
+    <!-- Nombre artista -->
     <div class="form-group">
         <label for="artistName">Nombre del artista</label>
         <input type="text" [(ngModel)]="song.artistName" name="artistName" class="form-control" id="artistName"
@@ -72,12 +59,10 @@
         <small class="form-text text-danger" *ngIf="artistName.errors['required']">Este campo es requerido!</small>
     </div>
 
-
-    <!-- Álbum de canción -->
+    <!-- Desplegable álbums -->
     <div class="form-group">
         <label for="albumId">Nombre del álbum</label>
-        <p-autoComplete [(ngModel)]="selectedAlbum" name="selectedAlbum" [suggestions]="albums" 
-        (completeMethod)="getAllAlbums($event)" field="name" (onSelect)="albumSelected();" (onClear)="unselectedAlbum();" [required]="true" [forceSelection]="true"></p-autoComplete>
+    <p-dropdown [options]="albums" [(ngModel)]="selectedAlbum" optionLabel="name"></p-dropdown>
     </div>
 
     <!-- Autocompletado estilo -->
@@ -93,7 +78,6 @@
         <input type="text" [(ngModel)]="song.image" name="image" class="form-control" id="image" #image="ngModel">
     </div>
     
-
     <div class="buttonsForm">
         <button class="btn btn-primary" (click)="saveSong()" [disabled]="songForm.invalid">Guardar</button>
     </div>

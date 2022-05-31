@@ -12,12 +12,8 @@ export class AlbumService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllAlbums(partialName?: string): Observable<Album[]> {
-    let urlEndPoint: string = this.url + 'albums';
-    if (partialName) {
-      urlEndPoint = urlEndPoint + "?partialName=" + partialName;
-      console.log(urlEndPoint);
-    }
+  public getAllAlbums(artistName?: string): Observable<Album[]> {
+    let urlEndPoint: string = this.url + 'album?filter=artist.name:EQUAL:' + artistName;
     return this.http.get<Album[]>(urlEndPoint);
   }
 }

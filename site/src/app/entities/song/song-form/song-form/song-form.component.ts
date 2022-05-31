@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { throwError } from 'rxjs';
 import { Album } from 'src/app/entities/album/model/album.model';
 import { AlbumService } from 'src/app/entities/album/services/album.service';
-import { ArtistComponent } from 'src/app/entities/artist/artist.component';
+import { Artist } from 'src/app/entities/artist/model/artist.model';
 import { Style } from 'src/app/entities/style/model/style.model';
 import { StyleService } from 'src/app/entities/style/services/style.service';
 import { Song } from '../../model/song.model';
@@ -20,7 +19,8 @@ export class SongFormComponent implements OnInit {
   id?: number;
   song?: Song;
   album?: Album;
-  //selectedArtist?: Artist;
+  artist?: Artist;
+  selectedArtist?: Artist;
   selectedStyle?: Style;
   styles: Style[] = [];
   selectedAlbum?: Album;
@@ -32,6 +32,7 @@ export class SongFormComponent implements OnInit {
     private albumService: AlbumService) { }
 
   ngOnInit(): void {
+    
     const entryParam: string = this.route.snapshot.paramMap.get('id') ?? "new";
     if (entryParam !== "new") {
       this.id = +this.route.snapshot.paramMap.get("id")!;
@@ -41,6 +42,7 @@ export class SongFormComponent implements OnInit {
       this.mode = "NEW";
       this.initializeSong();
     }
+    
   }
 
   public getAllStyles(event?: any): void{
@@ -50,17 +52,6 @@ export class SongFormComponent implements OnInit {
     }
     this.styleService.getAllStyles(styleSearch).subscribe({
       next: (stylesFiltered) => { this.styles = stylesFiltered; },
-      error: (error) => { this.handleError(error); }
-    });
-  }
-
-  public getAllAlbums(event?: any): void{
-    let albumSearch: string | undefined;
-    if (event?.query) {
-      albumSearch = event.query;
-    }
-    this.albumService.getAllAlbums(albumSearch).subscribe({
-      next: (albumsFiltered) => { this.albums = albumsFiltered; },
       error: (error) => { this.handleError(error); }
     });
   }
@@ -85,7 +76,15 @@ export class SongFormComponent implements OnInit {
     this.album!.name = undefined;
   }
 
+  public artistSelected(): void {
+    this.artist!.id = this.selectedArtist?.id!;
+    this.artist!.name = this.selectedArtist?.name!;
+  }
 
+  public unselectedArtist(): void {
+    this.artist!.id = undefined;
+    this.artist!.name = undefined;
+  }
 
   private getSongById(id: number) {
     this.songService.getSongById(id).subscribe({
@@ -93,9 +92,21 @@ export class SongFormComponent implements OnInit {
         this.song = songRequest;
         this.selectedStyle = new Style(songRequest.styleId!, songRequest.styleName!);
         this.selectedAlbum = new Album(songRequest.albumId!, songRequest.albumName!, songRequest.image);
+        this.selectedArtist = new Artist(songRequest.artistId!, songRequest.artistName!);
+
+        this.getAllAlbums(this.selectedArtist!.name!);
+
        },
       error: (error) => { this.handleError(error); }
-    })
+    });
+  } 
+
+  public getAllAlbums(nameArtist: string){
+    console.log(nameArtist);
+    this.albumService.getAllAlbums(nameArtist).subscribe({
+      next: (albumsFiltered) => { this.albums = albumsFiltered; },
+      error: (error) => { this.handleError(error); }
+    });
   }
 
   private initializeSong(): void {
