@@ -10,6 +10,7 @@ import { SongService } from 'src/app/entities/song/services/song.service';
   styleUrls: ['./card-song.component.scss']
 })
 export class CardSongComponent implements OnInit {
+  countRate!:number;
 playedTimes! : number;
  id!: number;
   song!: Song;
@@ -60,6 +61,10 @@ playedTimes! : number;
 
   public Valorar(){
     this.song.likes += this.val;
+    if(this.song.countRate== NaN){
+      this.song.countRate==0
+    }
+    this.song.countRate += 1;
     this.updateSong();
   }
 

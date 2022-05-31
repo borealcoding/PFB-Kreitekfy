@@ -93,7 +93,8 @@
           <div class="card-body">
             <h5 class="card-title">{{ song.name }}</h5>
             <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
-           {{song.likes}}
+                  Puntuacion de los usuarios:         {{song.likes / song.countRate | number: '1.0'}}
+         
             </p>
           </div>
         </div>
