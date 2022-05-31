@@ -34,6 +34,7 @@ export class SongService {
 
   public updateSong(song: Song): Observable<Song> {
     let urlEndPoint: string = this.url + 'songs/';
+    console.log(urlEndPoint);
     return this.http.patch<Song>(urlEndPoint, song);
   }
 

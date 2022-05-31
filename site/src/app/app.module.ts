@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CalendarModule } from 'primeng/calendar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { DropdownModule } from 'primeng/dropdown';
+=======
 import {RatingModule} from 'primeng/rating';
+>>>>>>> 876a5c023d3334b49e8215752a972612d9e1307c
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -22,6 +27,7 @@ import { SongListComponent } from './entities/song/song-list/song-list.component
 import { UserPlayerComponent } from './entities/user/user-player/user-player.component';
 import { SongFormComponent } from './entities/song/song-form/song-form/song-form.component';
 import { HttpRequestIntercept } from './config/interceptors/http-request-interceptor.interceptor';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 
 @NgModule({
@@ -43,12 +49,18 @@ import { HttpRequestIntercept } from './config/interceptors/http-request-interce
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
     CalendarModule,
     FormsModule,
+<<<<<<< HEAD
+    DropdownModule,
+    AutoCompleteModule
+=======
     RatingModule
+>>>>>>> 876a5c023d3334b49e8215752a972612d9e1307c
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestIntercept, multi: true }

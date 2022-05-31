@@ -3,76 +3,81 @@
 <h2>Operación seleccionada {{ mode }}</h2>
 
 <form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
+
+    <!-- Nombre canción -->
     <div class="form-group">
         <label for="name">Nombre</label>
-        <input type="text" [(ngModel)]="song.name" name="name" class="form-control" id="name" #name="ngModel" required minlength="3" maxlength="100">
+        <input type="text" [(ngModel)]="song.name" name="name" class="form-control" id="name" #name="ngModel" required
+            minlength="3" maxlength="100">
     </div>
 
+    <!-- Validación canción -->
     <div *ngIf="(name.dirty && name.errors)">
         <small class="form-text text-danger" *ngIf="name.errors['required']">Este campo es requerido!</small>
-        <small class="form-text text-danger" *ngIf="name.errors['minlength']">El nombre debe tener al menos 3 caracteres!</small>
-        <small class="form-text text-danger" *ngIf="name.errors['maxlength']">El nombre no puede tener más de 100 caracteres!</small>
+        <small class="form-text text-danger" *ngIf="name.errors['minlength']">El nombre debe tener al menos 3
+            caracteres!</small>
+        <small class="form-text text-danger" *ngIf="name.errors['maxlength']">El nombre no puede tener más de 100
+            caracteres!</small>
     </div>
 
+    <!-- Duración canción -->
     <div class="form-group">
         <label for="duration">Duración</label>
-        <input type="number" [(ngModel)]="song.duration" name="duration" class="form-control" id="duration" #duration="ngModel">
+        <input type="number" [(ngModel)]="song.duration" name="duration" class="form-control" id="duration"
+            #duration="ngModel">
     </div>
+
+    <!-- Cantidad likes canción-->
     <div class="form-group">
         <label for="likes">Likes</label>
         <input type="number" [(ngModel)]="song.likes" name="likes" class="form-control" id="likes" #likes="ngModel">
     </div>
+
+    <!-- Fecha lanzamiento canción -->
     <div class="form-group">
         <label for="releaseDate">Fecha de lanzamiento</label>
-        <input type="date" [(ngModel)]="song.releaseDate" name="releaseDate" class="form-control" id="releaseDate" #releaseDate="ngModel">
-    </div>
-    <div class="form-group">
-        <label for="playedTimes">Veces reproducida</label>
-        <input type="number" [(ngModel)]="song.playedTimes" name="playedTimes" class="form-control" id="playedTimes" #playedTimes="ngModel">
-    </div>
-    <div class="form-group">
-        <label for="artistId">Id del artista</label>
-        <input type="number" [(ngModel)]="song.artistId" name="artistId" class="form-control" id="artistId" #artistId="ngModel">
-    </div>
-    <div class="form-group">
-        <label for="artistName">Nombre del artista</label>
-        <input type="text" [(ngModel)]="song.artistName" name="artistName" class="form-control" id="artistName" #artistName="ngModel" required>
+        <input type="date" [(ngModel)]="song.releaseDate" name="releaseDate" class="form-control" id="releaseDate"
+            #releaseDate="ngModel">
     </div>
 
+    <!-- Veces reproducida canción -->
+    <div class="form-group">
+        <label for="playedTimes">Veces reproducida</label>
+        <input type="number" [(ngModel)]="song.playedTimes" name="playedTimes" class="form-control" id="playedTimes"
+            #playedTimes="ngModel">
+    </div>
+    
+    <!-- Nombre artista -->
+    <div class="form-group">
+        <label for="artistName">Nombre del artista</label>
+        <input type="text" [(ngModel)]="song.artistName" name="artistName" class="form-control" id="artistName"
+            #artistName="ngModel" required>
+    </div>
+
+    <!-- Validación artista -->
     <div *ngIf="(artistName.dirty && artistName.errors)">
         <small class="form-text text-danger" *ngIf="artistName.errors['required']">Este campo es requerido!</small>
     </div>
 
+    <!-- Desplegable álbums -->
     <div class="form-group">
-        <label for="albumId">Id del álbum</label>
-        <input type="number" [(ngModel)]="song.albumId" name="albumId" class="form-control" id="albumId" #albumId="ngModel">
-    </div>
-    <div class="form-group">
-        <label for="albumName">Nombre del álbum</label>
-        <input type="text" [(ngModel)]="song.albumName" name="albumName" class="form-control" id="albumName" #albumName="ngModel" required>
+        <label for="albumId">Nombre del álbum</label>
+    <p-dropdown [options]="albums" [(ngModel)]="selectedAlbum" optionLabel="name"></p-dropdown>
     </div>
 
-    <div *ngIf="(albumName.dirty && albumName.errors)">
-        <small class="form-text text-danger" *ngIf="albumName.errors['required']">Este campo es requerido!</small>
+    <!-- Autocompletado estilo -->
+    <div class="form-group">
+        <label for="styleId">Estilo</label>
+        <p-autoComplete [(ngModel)]="selectedStyle" name="selectedStyle" [suggestions]="styles" 
+        (completeMethod)="getAllStyles($event)" field="name" (onSelect)="styleSelected();" (onClear)="unselectedStyle();" [required]="true" [forceSelection]="true"></p-autoComplete>
     </div>
 
+    <!-- Imagen canción -->
     <div class="form-group">
         <label for="image">Imagen</label>
         <input type="text" [(ngModel)]="song.image" name="image" class="form-control" id="image" #image="ngModel">
     </div>
-    <div class="form-group">
-        <label for="styleId">Id del estilo</label>
-        <input type="number" [(ngModel)]="song.styleId" name="styleId" class="form-control" id="styleId" #styleId="ngModel">
-    </div>
-    <div class="form-group">
-        <label for="styleName">Nombre del estilo</label>
-        <input type="text" [(ngModel)]="song.styleName" name="styleName" class="form-control" id="styleName" #styleName="ngModel" required>
-    </div>
-
-    <div *ngIf="(styleName.dirty && styleName.errors)">
-        <small class="form-text text-danger" *ngIf="styleName.errors['required']">Este campo es requerido!</small>
-    </div>
-
+    
     <div class="buttonsForm">
         <button class="btn btn-primary" (click)="saveSong()" [disabled]="songForm.invalid">Guardar</button>
     </div>
