@@ -2,6 +2,8 @@ package com.kreitek.kreitekfy.infrastructure.persistence;
 
 import com.kreitek.kreitekfy.domain.entity.Album;
 import com.kreitek.kreitekfy.domain.persistence.AlbumPersistence;
+import com.kreitek.kreitekfy.infrastructure.specs.AlbumSpecification;
+import com.kreitek.kreitekfy.infrastructure.specs.shared.SearchCriteriaHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -32,4 +34,11 @@ public class AlbumPersistenceImpl implements AlbumPersistence {
     public List<Album> getAlbumsByName(String partialAlbumName) {
         return this.albumRepository.findByNameContainsIgnoreCase(partialAlbumName);
     }
+
+    @Override
+    public List<Album> findAll(String filter) {
+        AlbumSpecification albumSpecification=new AlbumSpecification(SearchCriteriaHelper.fromFilterString(filter));
+        return this.albumRepository.findAll(albumSpecification);
+    }
+
 }

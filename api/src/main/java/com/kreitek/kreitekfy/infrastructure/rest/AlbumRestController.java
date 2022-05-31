@@ -1,8 +1,11 @@
 package com.kreitek.kreitekfy.infrastructure.rest;
 
 import com.kreitek.kreitekfy.application.dto.AlbumDTO;
+import com.kreitek.kreitekfy.application.dto.SongDTO;
 import com.kreitek.kreitekfy.application.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +40,10 @@ public class AlbumRestController {
         }
         return new ResponseEntity<>(albums, HttpStatus.OK);
     }
-
+    @CrossOrigin
+    @GetMapping(value = "/album",produces="application/json")//con filtro
+    public ResponseEntity<List<AlbumDTO>> getAllAlbumFiltered(@RequestParam(value = "filter", required = false) String filter) {
+        List<AlbumDTO> albumDTOS = this.albumService.getAlbumFiltered(filter);
+        return new ResponseEntity<>(albumDTOS, HttpStatus.OK);
+    }
 }
