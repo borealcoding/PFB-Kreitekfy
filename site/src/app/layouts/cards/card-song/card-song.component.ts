@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/entities/song/model/song.model';
-import { CardSongService } from './services/card-song.service';
 import { ActivatedRoute } from '@angular/router';
+import { SongService } from 'src/app/entities/song/services/song.service';
 
 
 @Component({
@@ -10,10 +10,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./card-song.component.scss']
 })
 export class CardSongComponent implements OnInit {
-
+playedTimes! : number;
  id!: number;
   song!: Song;
-  constructor(private songCardService: CardSongService, private route: ActivatedRoute ) { }
+  val!: number;
+  constructor(private songService: SongService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
     // this.getAllSongs()
@@ -30,8 +31,9 @@ export class CardSongComponent implements OnInit {
     console.log("error")
   }
 
+
   public getOneSong(id:number) {
-    this.songCardService.getOneSong(id).subscribe({
+    this.songService.getSongById(id).subscribe({
   next: (data: Song) =>{
     this.song = data;
   },
@@ -39,14 +41,26 @@ export class CardSongComponent implements OnInit {
   })
   }
 
-  // public getAllSongs(){
-  //   this.songCardService.getAllSongs().subscribe(
-  //     (data) =>{
-  //       data.forEach((song)=>{
-  //         this.songs.push(song);
-  //         console.log(this.songs)
-  //       }) 
-  //     }
-  //   )
-  // }
+
+  public reproducir(){
+    this.song.playedTimes += 1;
+    this.updateSong();
+    
+  }
+  private updateSong() :void{
+    this.songService.updateSong(this.song).subscribe({
+      next: (songUpdate) =>{
+        console.log("played times actualizado")
+      }
+    })
+    
+
+  }
+
+
+  public Valorar(){
+    this.song.likes += this.val;
+    this.updateSong();
+  }
+
 }

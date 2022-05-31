@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CalendarModule } from 'primeng/calendar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {RatingModule} from 'primeng/rating';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -46,7 +47,8 @@ import { HttpRequestIntercept } from './config/interceptors/http-request-interce
     HttpClientModule,
     CommonModule,
     CalendarModule,
-    FormsModule
+    FormsModule,
+    RatingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestIntercept, multi: true }
