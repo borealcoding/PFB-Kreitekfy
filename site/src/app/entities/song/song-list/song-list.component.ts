@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from '../model/song.model';
-import { SongListService } from './services/song-list.service';
+import { SongService } from '../services/song.service';
 
 @Component({
   selector: 'app-song-list',
   templateUrl: './song-list.component.html',
   styleUrls: ['./song-list.component.scss']
 })
+
 export class SongListComponent implements OnInit {
   songs: Song[] = [];
   page: number = 0;
@@ -25,7 +26,7 @@ export class SongListComponent implements OnInit {
 
   songIdToDelete?: number;
 
-  constructor(private songsListService: SongListService) { }
+  constructor(private songsService: SongService) { }
 
   ngOnInit(): void {
     this.getAllSongs();
@@ -36,7 +37,7 @@ export class SongListComponent implements OnInit {
   }
 
   private getAllSongs() {
-    this.songsListService.getAllSongs(this.page, this.size, this.sort).subscribe({
+    this.songsService.getAllSongs(this.page, this.size, this.sort).subscribe({
       next: (data: any) => {
         this.songs = data.content;
         this.first = data.first;
@@ -64,7 +65,7 @@ export class SongListComponent implements OnInit {
 
   public deleteSong(): void {
     if (this.songIdToDelete) {
-      this.songsListService.deleteSong(this.songIdToDelete).subscribe({
+      this.songsService.deleteSong(this.songIdToDelete).subscribe({
         next: (data) => {
           this.getAllSongs();
         },

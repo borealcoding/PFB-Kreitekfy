@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'admin', component: UserAdminComponent },
   { path: 'user', component: PlayerComponent },
   { path: 'song-list', component: SongListComponent },
-  { path: 'song-form', component: SongFormComponent }
+  { path: 'song-form/:id', component: SongFormComponent }
 ];
 
 @NgModule({

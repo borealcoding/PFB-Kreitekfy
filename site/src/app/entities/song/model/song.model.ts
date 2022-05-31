@@ -1,5 +1,5 @@
 export class Song {
-    id: number;
+    id: number | undefined;
     name: string;
     duration: number;
     releaseDate: Date;
@@ -11,7 +11,9 @@ export class Song {
     albumName: string;
     totalSongs: number;
     albumReleaseDate: Date;
-    albumImage: string;
+    image: string;
+    styleId: number;
+    styleName: string;
 
     constructor() {
         this.id = 0;
@@ -26,7 +28,9 @@ export class Song {
         this.albumName = "";
         this.totalSongs = 0;
         this.albumReleaseDate = new Date();
-        this.albumImage = "";
+        this.image = "";
+        this.styleId = 0;
+        this.styleName = "";
     }
 }
 

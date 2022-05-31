@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/entities/song/model/song.model';
-import { SongListService } from 'src/app/entities/song/song-list/services/song-list.service';
+import { SongService } from 'src/app/entities/song/services/song.service';
 
 @Component({
   selector: 'app-player',
@@ -11,7 +11,7 @@ export class PlayerComponent implements OnInit {
 
   songs: Song[] = [];
 
-  constructor(private songListService: SongListService) { }
+  constructor(private songService: SongService) { }
 
   ngOnInit(): void {
     //this.getAllSongs();

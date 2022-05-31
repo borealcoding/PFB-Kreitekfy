@@ -1,7 +1,7 @@
 <h1>Lista de canciones</h1>
 
 <div class="col-12 col-md-3">
-  <button id="btnAddSong" class="btn btn-secondary">Añadir una nueva canción</button>
+  <button id="btnAddSong" [routerLink]="['/song-form', 'new']" class="btn btn-secondary">Añadir una nueva canción</button>
 </div>
 
 <table *ngIf="songs.length > 0">
@@ -36,10 +36,10 @@
       <td>{{ song.totalSongs }}</td>
       <td>{{ song.albumReleaseDate }}</td>
       <td>
-        <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.albumImage" alt="album-image">
+        <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.image" alt="album-image" style="width: 50px; height: 50px;">
       </td>
       <td>
-        <button id="navToEditSong">Editar</button>
+        <button id="navToEditSong" [routerLink]="['/song-form',song.id]">Editar</button>
         <button id="navToDeleteSong" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="prepareSongToDelete(song.id!)">Eliminar</button>
       </td>
     </tr>
