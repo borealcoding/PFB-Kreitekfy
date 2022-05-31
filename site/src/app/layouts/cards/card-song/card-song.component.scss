@@ -1,3 +1,5 @@
+
+
 div#card {
   background-color: #171717;
   color: #fff;
@@ -5,8 +7,8 @@ div#card {
   padding: 1em;
   box-shadow: 0 1em 2em rgb(0 0 0 / 75%);
 margin: 30px;
-  width: 18rem ;
-  height: 29rem;
+  width: 50% ;
+  height:  50%;
   transition: 0.5s;
   mar
   div#image-body {
@@ -22,3 +24,45 @@ margin: 30px;
 background-color: #3d3d3d;
 transition: 0.5s;
 }
+
+
+
+  //
+  // Gradient system
+  //
+  $gradients: () !default;
+  $gradients: map-merge((
+      chill: linear-gradient(180deg, #09e485 40%,#0291e3 100%),
+      warm: linear-gradient(135deg, #F2CD48 0%,#FD803F 100%),
+      hot: linear-gradient(135deg, #F9445A 0%,#FD803F 100%),
+      cold: linear-gradient(180deg, #0291e3  -150%,#121112 40%)
+  ), $gradients);
+  
+  
+  // Gradient backgrounds
+  @mixin bg-gradient($parent, $gradient) {
+    #{$parent} {
+      background: $gradient;
+    }
+  }
+  
+  // Gradient text
+  @mixin text-gradient($parent, $gradient) {
+    #{$parent} {
+      background-image: $gradient;
+      color:transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  
+  // Gradient Classes 
+  @each $gradient, $value in $gradients {
+    @include bg-gradient(".bg-gradient-#{$gradient}", $value);
+  }
+  
+  // Gradient Classes 
+  @each $gradient, $value in $gradients {
+    @include text-gradient(".text-gradient-#{$gradient}", $value);
+  }
+  

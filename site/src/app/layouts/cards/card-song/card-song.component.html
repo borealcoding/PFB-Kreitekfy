@@ -1,20 +1,72 @@
+<div class="container-fluidd" style="height: 1250px; display:flex ; justify-content:center ; ">
+  <div id="card" class="bg-gradient-cold" style="align-self:center ;" >
+    <div></div>
+    <div class="row" style="display: flex;">
+      <div class="col-5">
+        <div id="image-body">
+          <img
+            id="albumImage"
+            [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+            class="card-img-top"
+            alt="album-image"
+            style="width:70% ; height:70%"
+          />
+        </div>
+      </div>
+
+      <div class="col-7">
+        <h3>Album :  {{song.albumName}}</h3>
+        <h1>{{song.name}}</h1>
+        <h3>Artist:    {{song.artistName}}  </h3>
+        <h3>Duration:{{song.duration}} seconds</h3>
+      </div>
+    </div>
+    <div class="row" style="height: 20% ; display:flex; justify-content:center ; align-items:center ;width:100% ;  ">
+      
+      
+
+      <div class="col-6" style="justify-content: end; display:flex" >
+        <div>
+          <i class="bi bi-play-circle-fill" style="margin:30px"
+          ><svg
+            style="color: #1db954"
+            xmlns="http://www.w3.org/2000/svg"
+            width="60"
+            height="60"
+            fill="currentColor"
+            class="bi bi-play-circle-fill"
+            viewBox="0 0 16 16"
+            (click)="reproducir()"
+            id="playbutton"
+          >
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
+            /></svg
+        ></i>
+        </div>
+        
 
 
-<div id="card" class="card" >
 
-  <div id="image-body">
-    <img
-      id="albumImage"
-      [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
-      class="card-img-top"
-      alt="album-image"
-    />
+      </div>
+      <div class="col-6">
+        <div>
+          <p-rating [(ngModel)]="val" (click)="Valorar()"></p-rating>
+          {{val}}
+        </div>
+       
+    
+      </div>
+  
+
+
+
+    <div class="card-body">
+
+      
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">{{song.name}}</h5>
-    <p class="card-text " style=" text-shadow: 4px 12px 4px rgb(0, 0, 0);">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-      quidem, doloremque, quisquam.
-    </p>
-  </div>
-</div>
+</div> 
+
+
+

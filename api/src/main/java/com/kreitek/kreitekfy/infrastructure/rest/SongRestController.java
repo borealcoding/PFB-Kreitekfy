@@ -29,7 +29,7 @@ public class SongRestController {
     }
     @CrossOrigin
     @PatchMapping(value = "/songs", produces = "application/json", consumes = "application/json")
-    public ResponseEntity <SongDTO> updatetSong(@RequestBody SongDTO songDTO){
+    public ResponseEntity <SongDTO> updatedSong(@RequestBody SongDTO songDTO){
         SongDTO songSaved= this.songService.saveSong(songDTO);
         return new ResponseEntity<>(songSaved,HttpStatus.OK);
     }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/entities/song/model/song.model';
+
 import { SongService } from 'src/app/entities/song/services/song.service';
 
 @Component({
@@ -14,7 +15,6 @@ export class PlayerComponent implements OnInit {
   songsByLikes: Song[] = [];
   page: number = 0;
   size: number = 5;
-  playedTimes:number = 0; 
   sortByDate: string = 'releaseDate,desc';
   sortByPlayedTimes: string = 'playedTimes,desc';
   sortByLikes: string = 'likes,desc';
@@ -52,10 +52,12 @@ export class PlayerComponent implements OnInit {
     })
 
     this.songService.getAllSongs(this.page, this.size, this.sortByPlayedTimes).subscribe({
+<<<<<<< HEAD
 
+=======
+>>>>>>> 876a5c023d3334b49e8215752a972612d9e1307c
 
       next: (data: any) => {
-
         this.songsByPlayedtimes = data.content;
         this.first = data.first;
         this.last = data.last;
