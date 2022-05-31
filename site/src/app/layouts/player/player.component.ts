@@ -39,7 +39,7 @@ export class PlayerComponent implements OnInit {
   }
 
   private getAllSongs() {
-    this.songListService.getAllSongs(this.page, this.size, this.sortByDate).subscribe({
+    this.songService.getAllSongs(this.page, this.size, this.sortByDate).subscribe({
 
       next: (data: any) => {
         this.songsByReleaseDate = data.content;
@@ -51,7 +51,7 @@ export class PlayerComponent implements OnInit {
    
     })
 
-    this.songListService.getAllSongs(this.page, this.size, this.sortByPlayedTimes).subscribe({
+    this.songService.getAllSongs(this.page, this.size, this.sortByPlayedTimes).subscribe({
 
 
       next: (data: any) => {
@@ -65,7 +65,7 @@ export class PlayerComponent implements OnInit {
    
     })
 
-    this.songListService.getAllSongs(this.page, this.size, this.sortByLikes).subscribe({
+    this.songService.getAllSongs(this.page, this.size, this.sortByLikes).subscribe({
 
       next: (data: any) => {
         this.songsByLikes = data.content;

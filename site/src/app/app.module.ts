@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CalendarModule } from 'primeng/calendar';
@@ -21,6 +22,7 @@ import { SongListComponent } from './entities/song/song-list/song-list.component
 import { UserPlayerComponent } from './entities/user/user-player/user-player.component';
 import { SongFormComponent } from './entities/song/song-form/song-form/song-form.component';
 import { HttpRequestIntercept } from './config/interceptors/http-request-interceptor.interceptor';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 
 @NgModule({
@@ -42,11 +44,13 @@ import { HttpRequestIntercept } from './config/interceptors/http-request-interce
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
     CalendarModule,
-    FormsModule
+    FormsModule,
+    AutoCompleteModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestIntercept, multi: true }

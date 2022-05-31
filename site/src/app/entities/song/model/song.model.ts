@@ -5,15 +5,13 @@ export class Song {
     releaseDate: Date;
     likes: number;
     playedTimes: number;
-    artistId: number;
-    artistName: String;
-    albumId: number;
-    albumName: string;
-    totalSongs: number;
-    albumReleaseDate: Date;
+    artistId?: number;
+    artistName?: string;
+    albumId?: number;
+    albumName?: string;
     image: string;
-    styleId: number;
-    styleName: string;
+    styleId?: number;
+    styleName?: string;
 
     constructor() {
         this.id = 0;
@@ -26,8 +24,6 @@ export class Song {
         this.artistName = ""
         this.albumId = 0;
         this.albumName = "";
-        this.totalSongs = 0;
-        this.albumReleaseDate = new Date();
         this.image = "";
         this.styleId = 0;
         this.styleName = "";
