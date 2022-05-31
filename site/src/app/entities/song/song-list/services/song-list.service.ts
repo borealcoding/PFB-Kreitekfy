@@ -13,7 +13,7 @@ export class SongListService {
   constructor(private http: HttpClient) { }
 
   public getAllSongs(): Observable<Song[]>{
-    const urlEndPoint: string = this.url + 'songs';
+    const urlEndPoint: string = this.url + '/allsongs';
     return this.http.get<Song[]>(urlEndPoint);
   }
 }

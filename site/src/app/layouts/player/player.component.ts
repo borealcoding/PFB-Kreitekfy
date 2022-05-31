@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/entities/song/model/song.model';
-import { PlayerService } from './services/player.service';
+import { SongListService } from 'src/app/entities/song/song-list/services/song-list.service';
 
 @Component({
   selector: 'app-player',
@@ -11,17 +11,17 @@ export class PlayerComponent implements OnInit {
 
   songs: Song[] = [];
 
-  constructor(private cancionesService: PlayerService) { }
+  constructor(private songListService: SongListService) { }
 
   ngOnInit(): void {
     this.getAllSongs();
   }
 
   public getAllSongs() {
-    this.cancionesService.getAllSongs().subscribe(
+    this.songListService.getAllSongs().subscribe(
       (data) => {
-        data.forEach((cancion) => {
-          this.songs.push(cancion);
+        data.forEach((song) => {
+          this.songs.push(song);
           console.log(this.songs)
         })
       }
