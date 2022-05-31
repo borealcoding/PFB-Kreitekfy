@@ -9,35 +9,86 @@ import { SongListService } from 'src/app/entities/song/song-list/services/song-l
 })
 export class PlayerComponent implements OnInit {
 
-  songs: Song[] = [];
+  songsByReleaseDate: Song[] = [];
+  songsByPlayedtimes: Song[] = [];
+  songsByLikes: Song[] = [];
+  page: number = 0;
+  size: number = 5;
+  playedTimes:number = 0; 
+  sortByDate: string = 'releaseDate,desc';
+  sortByPlayedTimes: string = 'playedTimes,desc';
+  sortByLikes: string = 'likes,desc';
+
+  first: boolean = false;
+  last: boolean = false;
+  style: string = "";
+  totalPages: number = 0;
+  totalElements: number = 0;
 
   constructor(private songListService: SongListService) { }
 
   ngOnInit(): void {
-    //this.getAllSongs();
+    this.getAllSongs();
+  
   }
 
-<<<<<<< HEAD
-  public getAllSongs() {
-    this.songListService.getAllSongs().subscribe(
-      (data) => {
-        data.forEach((song) => {
-          this.songs.push(song);
-          console.log(this.songs)
-        })
-      }
-    )
+
+  public searchByFilters(): void {
+    this.getAllSongs();
+  
   }
-=======
-  // public getAllSongs() {
-  //   this.songListService.getAllSongs().subscribe(
-  //     (data) => {
-  //       data.forEach((song) => {
-  //         this.songs.push(song);
-  //         console.log(this.songs)
-  //       })
-  //     }
-  //   )
-  // }
->>>>>>> 570dab64c1cf21a7c772c71efed4cf42649526a8
+
+  private getAllSongs() {
+    this.songListService.getAllSongs(this.page, this.size, this.sortByDate).subscribe({
+
+      next: (data: any) => {
+        this.songsByReleaseDate = data.content;
+        this.first = data.first;
+        this.last = data.last;
+        this.totalPages = data.totalPages;
+        this.totalElements = data.totalElements;
+      },
+   
+    })
+
+    this.songListService.getAllSongs(this.page, this.size, this.sortByPlayedTimes).subscribe({
+
+
+      next: (data: any) => {
+
+        this.songsByPlayedtimes = data.content;
+        this.first = data.first;
+        this.last = data.last;
+        this.totalPages = data.totalPages;
+        this.totalElements = data.totalElements;
+      },
+   
+    })
+
+    this.songListService.getAllSongs(this.page, this.size, this.sortByLikes).subscribe({
+
+      next: (data: any) => {
+        this.songsByLikes = data.content;
+        this.first = data.first;
+        this.last = data.last;
+        this.totalPages = data.totalPages;
+        this.totalElements = data.totalElements;
+      },
+   
+    })
+
+  }
+
+  public nextPage(): void {
+    this.page = this.page + 1;
+    this.getAllSongs();
+    
+  }
+
+  public previousPage(): void {
+    this.page = this.page - 1;
+    this.getAllSongs();
+   
+  }
+
 }

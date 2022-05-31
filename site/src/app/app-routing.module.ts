@@ -13,13 +13,9 @@ const routes: Routes = [
   { path: 'admin', component: UserAdminComponent },
   { path: 'user', component: PlayerComponent },
   { path: 'song-list', component: SongListComponent },
-<<<<<<< HEAD
   { path: 'song-form', component: SongFormComponent },
-  { path: 'songs/:songId', component: CardSongComponent }
- 
-=======
+  { path: 'songs/:songId', component: CardSongComponent },
   { path: 'song-form', component: SongFormComponent }
->>>>>>> 570dab64c1cf21a7c772c71efed4cf42649526a8
 ];
 
 @NgModule({

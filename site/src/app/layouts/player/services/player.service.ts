@@ -18,7 +18,8 @@ export class PlayerService {
   }
 public getAllSongs(): Observable<Song[]>{
   const urlEndPoint: string = this.url + 'allsongs';
+  console.log(urlEndPoint);
   return this.http.get<Song[]>(urlEndPoint)
 }
- 
+
 }
