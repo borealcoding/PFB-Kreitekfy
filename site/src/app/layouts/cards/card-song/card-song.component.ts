@@ -23,9 +23,8 @@ export class CardSongComponent implements OnInit {
   }
 
   public handleError(err: String) {
-    console.log("error")
+    console.log(err)
   }
-
 
   public getOneSong(id: number) {
     this.songService.getSongById(id).subscribe({
@@ -36,12 +35,12 @@ export class CardSongComponent implements OnInit {
     })
   }
 
-
   public reproducir() {
     this.song.playedTimes += 1;
     this.updateSong();
 
   }
+
   private updateSong(): void {
     this.songService.updateSong(this.song).subscribe({
       next: (songUpdate) => {
@@ -49,14 +48,9 @@ export class CardSongComponent implements OnInit {
     })
   }
 
-
-  public Valorar() {
+  public valorar() {
     this.song.likes += this.val;
-    if (this.song.countRate == NaN) {
-      this.song.countRate == 0
-    }
     this.song.countRate += 1;
     this.updateSong();
   }
-
 }

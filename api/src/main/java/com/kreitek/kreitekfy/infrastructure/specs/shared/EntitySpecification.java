@@ -48,12 +48,16 @@ public abstract class EntitySpecification<T> {
                             root.get(criteria.getKey()), criteria.getValue()));
                 }
             } else if (criteria.getOperation().equals(SearchOperation.MATCH)) {
+                if (criteria.getKey().contains(".")) {
+                    String[] valueSplited = criteria.getKey().split("\\.");
+                    predicates.add(builder.equal(
+                            root.join(valueSplited[0]).get(valueSplited[1]) , criteria.getValue()));
+                } else {
+                    predicates.add(builder.like(
+                            builder.lower(root.get(criteria.getKey())),
+                            "%" + criteria.getValue().toString().toLowerCase() + "%"));
 
-                predicates.add(builder.like(
-                        builder.lower(root.get(criteria.getKey())),
-                        "%" + criteria.getValue().toString().toLowerCase() + "%"));
-
-
+                }
             } else if (criteria.getOperation().equals(SearchOperation.MATCH_END)) {
                 predicates.add(builder.like(
                         builder.lower(root.get(criteria.getKey())),

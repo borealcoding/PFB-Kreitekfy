@@ -1,27 +1,61 @@
-
+#filterTitle {
+  display: flex;
+  align-self: flex-start;
+  margin-top: 20px;
+  text-shadow: 4px 12px 4px rgb(0, 0, 0);
+}
+#filterTitleRow {
+  justify-content: space-between;
+}
+#seeAll{
+  display: flex;
+        justify-content: end;
+        color: rgba(128, 128, 128, 0.419);
+        margin-top: 20px;
+}
+#card-Text{
+  text-shadow: 4px 12px 4px rgb(0, 0, 0)
+}
+#PlayerContainer {
+  width: 93%;
+  height: 100%;
+}
+#filterRow {
+  justify-content: center;
+}
+#playerComponentBody {
+  height: fit-content
+}
 div#card {
     background-color: #171717;
     color: #fff;
     border-radius: 1em;
     padding: 1em;
     box-shadow: 0 1em 2em rgb(0 0 0 / 75%);
-  margin: 30px;
+    margin: 30px;
     width: 18rem ;
-    height: 29rem;
+    height: 20rem;
     transition: 0.5s;
-    mar
+ 
     div#image-body {
       width: 90%;
       margin-left: auto;
       margin-right: auto;
       img#albumImage {
         border-radius: 1em;
+        object-fit: cover;
+        height: 230px;
       }
     }
   }
-#card:hover{
+
+
+#card:hover {
   background-color: #3d3d3d;
   transition: 0.5s;
 }
 
-  
+p-tag {
+  font-size: 1.2em;
+  font-weight: bold;
+}

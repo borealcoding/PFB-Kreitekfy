@@ -7,8 +7,10 @@ import { CalendarModule } from 'primeng/calendar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
-import {RatingModule} from 'primeng/rating';
-
+import { RatingModule } from 'primeng/rating';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { TagModule } from 'primeng/tag';
+import {ToastModule} from 'primeng/toast';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { PlayerComponent } from './layouts/player/player.component';
@@ -24,8 +26,6 @@ import { SongListComponent } from './entities/song/song-list/song-list.component
 import { UserPlayerComponent } from './entities/user/user-player/user-player.component';
 import { SongFormComponent } from './entities/song/song-form/song-form/song-form.component';
 import { HttpRequestIntercept } from './config/interceptors/http-request-interceptor.interceptor';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -56,7 +56,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DropdownModule,
     AutoCompleteModule,
     RatingModule,
-    ReactiveFormsModule
+    TagModule,
+    ToastModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestIntercept, multi: true }
