@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from 'src/app/entities/album/model/album.model';
 import { AlbumService } from 'src/app/entities/album/services/album.service';
 import { Artist } from 'src/app/entities/artist/model/artist.model';
@@ -7,6 +7,7 @@ import { Style } from 'src/app/entities/style/model/style.model';
 import { StyleService } from 'src/app/entities/style/services/style.service';
 import { Song } from '../../model/song.model';
 import { SongService } from '../../services/song.service';
+import { ArtistService } from 'src/app/entities/artist/services/artist.service';
 
 
 @Component({
@@ -17,32 +18,50 @@ import { SongService } from '../../services/song.service';
 export class SongFormComponent implements OnInit {
   mode: "NEW" | "UPDATE" = "NEW";
   id?: number;
-  song?: Song;
+  song!: Song;
   album?: Album;
   artist?: Artist;
+  style?: Style;
   selectedArtist?: Artist;
   selectedStyle?: Style;
   styles: Style[] = [];
   selectedAlbum?: Album;
   albums: Album[] = [];
+  artists: Artist[] = [];
 
   constructor(private route: ActivatedRoute,
     private songService: SongService,
     private styleService: StyleService,
-    private albumService: AlbumService) { }
+    private albumService: AlbumService,
+    private artistService: ArtistService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    
     const entryParam: string = this.route.snapshot.paramMap.get('id') ?? "new";
+    this.getAllArtist();
     if (entryParam !== "new") {
       this.id = +this.route.snapshot.paramMap.get("id")!;
       this.mode = "UPDATE";
-      this.getSongById(this.id!);
+      this.getSongById(this.id);
     } else {
       this.mode = "NEW";
       this.initializeSong();
     }
-    
+  }
+
+  public getAlbumsOfOneArtist()  {
+   if (this.song.artistName !== '' && !!this.song.artistName) {
+    this.getAllAlbums(this.song.artistName);
+   }
+  }
+
+  public setAlbumId(event: any) {
+    this.song.albumId = event.value;
+  }
+
+  public setArtistId(event: any) {
+    this.song.artistId = event.value.id;
+    this.getAllAlbums(event.value.name);
   }
 
   public getAllStyles(event?: any): void{
@@ -92,20 +111,26 @@ export class SongFormComponent implements OnInit {
         this.song = songRequest;
         this.selectedStyle = new Style(songRequest.styleId!, songRequest.styleName!);
         this.selectedAlbum = new Album(songRequest.albumId!, songRequest.albumName!, songRequest.image);
-        this.selectedArtist = new Artist(songRequest.artistId!, songRequest.artistName!);
+        this.selectedArtist = new Artist(songRequest.artistId!, songRequest.artistName);
 
-        this.getAllAlbums(this.selectedArtist!.name!);
-
+        this.getAllAlbums(this.selectedArtist.name!);
+        this.getAllArtist();
        },
       error: (error) => { this.handleError(error); }
     });
   } 
 
   public getAllAlbums(nameArtist: string){
-    console.log(nameArtist);
     this.albumService.getAllAlbums(nameArtist).subscribe({
       next: (albumsFiltered) => { this.albums = albumsFiltered; },
       error: (error) => { this.handleError(error); }
+    });
+  }
+
+  public getAllArtist() {
+    this.artistService.getAllArtist().subscribe({
+      next: (response) => {this.artists = response},
+      error: (error) => { this.handleError(error);}
     });
   }
 
@@ -116,10 +141,12 @@ export class SongFormComponent implements OnInit {
   public saveSong(): void {
     if (this.mode === "NEW") {
       this.insertSong();
+      this.router.navigate(["/song-list"]);
     }
 
     if (this.mode === "UPDATE") {
       this.updateSong();
+      this.router.navigate(["/song-list"]);
     }
   }
 
@@ -145,5 +172,10 @@ export class SongFormComponent implements OnInit {
 
   public handleError(error: any): void {
     console.log(error);
+  }
+
+  onPaste(e: any) {
+    e.preventDefault();
+    return false;
   }
 }

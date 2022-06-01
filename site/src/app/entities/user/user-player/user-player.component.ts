@@ -18,8 +18,6 @@ export class UserPlayerComponent implements OnInit {
 
   public getLocalStorage() {
     this.dataUser = JSON.parse(localStorage.getItem('user') as string);
-    console.log(this.dataUser);
-    console.log(this.dataUser.id);
   }
 
 }

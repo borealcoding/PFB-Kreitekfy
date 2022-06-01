@@ -10,22 +10,16 @@ import { SongService } from 'src/app/entities/song/services/song.service';
   styleUrls: ['./card-song.component.scss']
 })
 export class CardSongComponent implements OnInit {
-  countRate!:number;
-playedTimes! : number;
- id!: number;
+  countRate!: number;
+  playedTimes!: number;
+  id!: number;
   song!: Song;
   val!: number;
-  constructor(private songService: SongService, private route: ActivatedRoute ) { }
+  constructor(private songService: SongService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.getAllSongs()
-
-      this.id = +this.route.snapshot.paramMap.get("songId")!;
-
-    
+    this.id = +this.route.snapshot.paramMap.get("songId")!;
     this.getOneSong(this.id);
-
-
   }
 
   public handleError(err: String) {
@@ -33,36 +27,33 @@ playedTimes! : number;
   }
 
 
-  public getOneSong(id:number) {
+  public getOneSong(id: number) {
     this.songService.getSongById(id).subscribe({
-  next: (data: Song) =>{
-    this.song = data;
-  },
-  error: (err) => {this.handleError(err);}
-  })
+      next: (data: Song) => {
+        this.song = data;
+      },
+      error: (err) => { this.handleError(err); }
+    })
   }
 
 
-  public reproducir(){
+  public reproducir() {
     this.song.playedTimes += 1;
     this.updateSong();
-    
+
   }
-  private updateSong() :void{
+  private updateSong(): void {
     this.songService.updateSong(this.song).subscribe({
-      next: (songUpdate) =>{
-        console.log("played times actualizado")
+      next: (songUpdate) => {
       }
     })
-    
-
   }
 
 
-  public Valorar(){
+  public Valorar() {
     this.song.likes += this.val;
-    if(this.song.countRate== NaN){
-      this.song.countRate==0
+    if (this.song.countRate == NaN) {
+      this.song.countRate == 0
     }
     this.song.countRate += 1;
     this.updateSong();

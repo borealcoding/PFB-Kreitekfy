@@ -11,12 +11,14 @@ div#authContainer {
   flex-wrap: wrap;
   padding: 2em;
   z-index: 100;
+
   div#authTitle {
     font-size: xx-large;
     font-weight: bold;
     color: #000;
     text-align: center;
   }
+
   div#usersContainer {
     display: flex;
     flex-direction: row;
@@ -33,15 +35,18 @@ div#card {
   width: 12rem;
   height: 280px;
   cursor: pointer;
+
   div#image-body {
     margin-top: 1em;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+
     img#userImage {
       border-radius: 100%;
     }
   }
+
   div.card-body {
     text-align: center;
     margin-top: 10px;

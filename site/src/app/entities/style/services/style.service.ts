@@ -18,7 +18,6 @@ export class StyleService {
     let urlEndPoint: string = this.url + 'styles';
     if (partialName) {
       urlEndPoint = urlEndPoint + "?partialName=" + partialName;
-      console.log(urlEndPoint);
     }
     return this.http.get<Style[]>(urlEndPoint);
   }

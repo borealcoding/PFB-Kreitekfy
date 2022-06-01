@@ -7,7 +7,7 @@ export class Song {
     likes: number;
     playedTimes: number;
     artistId?: number;
-    artistName?: string;
+    artistName!: string;
     albumId?: number;
     albumName?: string;
     image: string;

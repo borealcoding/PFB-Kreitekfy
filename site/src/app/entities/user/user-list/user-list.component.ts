@@ -9,7 +9,7 @@ import { UserListService } from './service/user-list.service';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[] = []; 
+  users: User[] = [];
 
   constructor(private userListService: UserListService) { }
 
@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
     )
   }
 
-  public saveStorage(user: User){
+  public saveStorage(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
   }
 

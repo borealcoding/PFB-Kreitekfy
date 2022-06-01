@@ -27,7 +27,6 @@ export class HttpRequestIntercept implements HttpInterceptor {
                     } else {
                         errorMessage = `Error: ${error.message}`;
                     }
-                    console.log(errorMessage);
                     return throwError(() => error);
                 })
             )
