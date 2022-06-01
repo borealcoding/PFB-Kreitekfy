@@ -1,5 +1,8 @@
-<div id= "playerComponentBody">
-  <div class="container-fluid" id="PlayerContainer" >
+<div id="playerComponentBody">
+  <div class="container-fluid" id="PlayerContainer">
+    <span>
+      <p-tag id="styleTag" severity="success"value="{{styleObtained ? 'Estilo seleccionado: ' + styleObtained: 'No se ha seleccionado ningún estilo'}}"></p-tag>
+  </span>
     <div class="row" id="filterTitleRow">
       <h3 id="filterTitle">
         Novedades
@@ -19,7 +22,8 @@
         <div id="image-body">
           <img
             id="albumImage"
-            [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+            [src]="'data:image/webp;base64,' + song.image"
+            alt="album-image"
             class="card-img-top"
             alt="album-image"
             [routerLink]="['/songs', song.id]"
@@ -27,7 +31,6 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ song.name }}</h5>
-
         </div>
       </div>
     
@@ -44,15 +47,12 @@
       
 
       <div class="row" id="filterRow">
-        <div
-          *ngFor="let song of songsByPlayedtimes"
-          id="card"
-          class="card"
-        >
+        <div *ngFor="let song of songsByPlayedtimes" id="card" class="card">
           <div id="image-body">
             <img
               id="albumImage"
-              [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+              [src]="'data:image/webp;base64,' + song.image"
+              alt="album-image"
               class="card-img-top"
               alt="album-image"
               [routerLink]="['/songs', song.id]"
@@ -60,8 +60,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ song.name }}</h5>
-            <p class="card-text" id="card-Text" >
-            </p>
+            <p class="card-text" id="card-Text"></p>
           </div>
         </div>
    
@@ -78,16 +77,12 @@
       </h5>
 
       <div class="row" id="filterRow">
-        <div
-          *ngFor="let song of songsByLikes"
-          id="card"
-          class="card"
-        >
+        <div *ngFor="let song of songsByLikes" id="card" class="card">
           <div id="image-body">
-          
             <img
               id="albumImage"
-              [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+              [src]="'data:image/webp;base64,' + song.image"
+              alt="album-image"
               class="card-img-top"
               alt="album-image"
               [routerLink]="['/songs', song.id]"
@@ -95,12 +90,9 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ song.name }}</h5>
-            <p class="card-text" id="card-Text" >
-            </p>
+            <p class="card-text" id="card-Text"></p>
           </div>
         </div>
-
     </div>
-    <div class="row"></div>
   </div>
 </div>

@@ -10,7 +10,10 @@
   >
     <span class="navbar-toggler-icon" style="color: white"></span>
   </button>
-  <a class="navbar-brand" style="color: white; size: 40px; width: auto" routerLink=""
+  <a
+    class="navbar-brand"
+    style="color: white; size: 40px; width: auto"
+    routerLink=""
     ><svg
       xmlns="http://www.w3.org/2000/svg"
       width="40"
@@ -40,7 +43,10 @@
   >
     <section>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li *ngIf="dataUser.rol==='ADMIN' ||  dataUser.rol==='USER' " class=" nav-item active">
+        <li
+          *ngIf="dataUser.rol === 'ADMIN' || dataUser.rol === 'USER'"
+          class="nav-item active"
+        >
           <a routerLink="/player" class="nav-link" style="color: white"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,10 +65,10 @@
                 d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
               />
             </svg>
-            Home <span class="sr-only"></span></a></li> 
-
-             <!--  -->
-        <li *ngIf="dataUser.rol==='ADMIN' " class="nav-item active">
+            Home <span class="sr-only"></span
+          ></a>
+        </li>
+        <li *ngIf="dataUser.rol === 'ADMIN'" class="nav-item active">
           <a routerLink="/song-list" class="nav-link" style="color: white"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -83,19 +89,28 @@
             Canciones <span class="sr-only">(current)</span></a
           >
         </li>
-         
-      </ul> 
+      </ul>
     </section>
-<<<<<<< HEAD
-    <section *ngIf="dataUser.rol==='ADMIN' ||  dataUser.rol==='USER' ">
+    <section *ngIf="dataUser.rol === 'ADMIN' || dataUser.rol === 'USER'">
       <form class="form-inline my-2 my-lg-0">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Busca un estilo de música!"
-          style="width: 500px; border-radius: 100px; height: 30px"
-          aria-label="Search"
-        />
+        <p-autoComplete
+          [(ngModel)]="selectedStyle"
+          name="selectedStyle"
+          [suggestions]="styles"
+          (completeMethod)="getAllStyles($event)"
+          field="name"
+          (onSelect)="styleSelected()"
+          [required]="true"
+          [forceSelection]="true"
+          [size]="50"
+          [placeholder]="'Selecciona tu estilo favorito!'"
+          [style]="{
+            display: 'inline-flex',
+            height: '40px',
+            fontSize: '24px',
+            marginRight: '20px'
+          }"
+        ></p-autoComplete>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"
@@ -109,40 +124,26 @@
           <path
             fill-rule="evenodd"
             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-=======
-    <div class="row" id="SerchBar__UserIcon">
-      <div class="col-11">
-        <form class="form-inline my-2 my-lg-0">
-          <input
-          id="searchBar"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Busca un estilo de música!"
-            aria-label="Search"
->>>>>>> a4d5a3525cc5f8947a3951b0647785bc009378aa
           />
-          
-        </form>
+        </svg>
+      </form>
+      <div class="col-1">
+        <svg
+          id="UserIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="currentColor"
+          class="bi bi-person-circle"
+          viewBox="0 0 16 16"
+        >
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+          <path
+            fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+          />
+        </svg>
       </div>
-     <div class="col-1">
-      <svg
-      id="UserIcon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="40"
-      height="40"
-      fill="currentColor"
-      class="bi bi-person-circle"
-      viewBox="0 0 16 16"
-    >
-      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-      <path
-        fill-rule="evenodd"
-        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-      />
-    </svg>
-     </div>
-      
-    </div>
+    </section>
   </div>
-
 </nav>
