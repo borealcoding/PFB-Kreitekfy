@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { PlayerComponent } from './layouts/player/player.component';
 import { CardSongComponent } from './layouts/cards/card-song/card-song.component';
-import { AuthComponent } from './auth/auth.component';
 import { SongComponent } from './entities/song/song.component';
 import { AlbumComponent } from './entities/album/album.component';
 import { StyleComponent } from './entities/style/style.component';
@@ -34,7 +33,6 @@ import { HttpRequestIntercept } from './config/interceptors/http-request-interce
     NavbarComponent,
     PlayerComponent,
     CardSongComponent,
-    AuthComponent,
     SongComponent,
     AlbumComponent,
     StyleComponent,

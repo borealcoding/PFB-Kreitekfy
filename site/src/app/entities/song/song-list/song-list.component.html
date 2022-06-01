@@ -1,82 +1,87 @@
-<h1 style=" display: flex;justify-content: center ;">Lista de canciones</h1>
+<div id="songListBody">
+  <h1 style=" display: flex;justify-content: center ;">Lista de canciones</h1>
 
-<div class="col-12 " style=" display: flex;justify-content: center ; margin-bottom:40px">
-  <button id="btnAddSong" [routerLink]="['/song-form', 'new']" class="btn btn-secondary">Añadir una nueva canción</button>
-</div>
+  <div class="col-12 " style=" display: flex;justify-content: center ; margin-bottom:40px">
+    <button id="btnAddSong" [routerLink]="['/song-form', 'new']" class="btn btn-secondary">Añadir una nueva
+      canción</button>
+  </div>
+  <div style="height: fit-content; display: flex; justify-content:center;">
+    <table *ngIf="songs.length > 0">
+      <div class="row">
+        <thead>
+          <th id="fieldHead" class="col-1">Id</th>
+          <th id="fieldHead" class="col-1">Nombre</th>
+          <th id="fieldHead" class="col-1">Duraci&oacute;n</th>
+          <th id="fieldHead" class="col-1">Fecha lanzamiento</th>
+          <th id="fieldHead" class="col-1">Likes</th>
+          <th id="fieldHead" class="col-1">Reproducciones</th>
+          <th id="fieldHead" class="col-1">Id art&iacute;sta</th>
+          <th id="fieldHead" class="col-1">Nombre art&iacute;sta</th>
+          <th id="fieldHead" class="col-1">Id &aacute;lbum</th>
+          <th id="fieldHead" class="col-1">Nombre &aacute;lbum</th>
+          <th id="fieldHead" class="col-1">Imagen &aacute;lbum</th>
+          <th id="fieldHead" class="col-1">Acciones</th>
+        </thead>
+      </div>
+      <div class="row">
+        <tbody>
+          <tr *ngFor="let song of songs">
+            <td id="field" class="col-1">{{ song.id }}</td>
+            <td id="field" class="col-1">{{ song.name }}</td>
+            <td id="field" class="col-1">{{ song.duration / 60 | number: "1.0-1"}}</td>
+            <td id="field" class="col-1">{{ song.releaseDate }}</td>
+            <td id="field" class="col-1">{{ song.likes }}</td>
+            <td id="field" class="col-1">{{ song.playedTimes }}</td>
+            <td id="field" class="col-1">{{ song.artistId }}</td>
+            <td id="field" class="col-1">{{ song.artistName }}</td>
+            <td id="field" class="col-1">{{ song.albumId }}</td>
+            <td id="field" class="col-1">{{ song.albumName }}</td>
+            <td id="field" class="col-1">
+              <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
+                style="width: 50px; height: 50px;">
+            </td>
+            <td id="field" class="col-1">
 
-
-<div style="height:fit-content; display:flex ; justify-content:center ;">
-
-
-<table *ngIf="songs.length > 0">
-  <div class="row">
-  <thead>
-    <th id ="fieldHead" class="col-1">Id</th>
-    <th id ="fieldHead" class="col-1">Name</th>
-    <th id ="fieldHead" class="col-1">Duration</th>
-    <th id ="fieldHead" class="col-1">Release date</th>
-    <th id ="fieldHead" class="col-1">Likes</th>
-    <th id ="fieldHead" class="col-1">Played times</th>
-    <th id ="fieldHead" class="col-1">Artist id</th>
-    <th id ="fieldHead" class="col-1">Artist name</th>
-    <th id ="fieldHead" class="col-1">Album id</th>
-    <th id ="fieldHead" class="col-1">Album name</th>
-    <th id ="fieldHead" class="col-1">Album image</th>
-    <th id ="fieldHead" class="col-1">Acciones</th>
-  </thead>
-</div>
-  <div class="row">
-  <tbody>
-    <tr *ngFor="let song of songs">
-      <td id ="field" class="col-1">{{ song.id }}</td>
-      <td id ="field" class="col-1">{{ song.name }}</td>
-      <td id ="field" class="col-1">{{ song.duration / 60 | number: "1.0-1"}}</td>
-      <td id ="field" class="col-1">{{ song.releaseDate }}</td>
-      <td id ="field" class="col-1">{{ song.likes }}</td>
-      <td id ="field" class="col-1">{{ song.playedTimes }}</td>
-      <td id ="field" class="col-1">{{ song.artistId }}</td>
-      <td id ="field" class="col-1">{{ song.artistName }}</td>
-      <td id ="field" class="col-1">{{ song.albumId }}</td>
-      <td id ="field" class="col-1">{{ song.albumName }}</td>
-      <td id ="field" class="col-1">
-        <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.image" alt="album-image" style="width: 50px; height: 50px;">
-      </td>
-      <td id ="field" class="col-1">
-        
-        <button id="navToEditSong" [routerLink]="['/song-form',song.id]"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-        </svg></button>
-        <button id="navToDeleteSong" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="prepareSongToDelete(song.id!)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-          <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-        </svg></button>
-      </td>
-    </tr>
-  </tbody>
+              <button id="navToEditSong" [routerLink]="['/song-form',song.id]"><svg xmlns="http://www.w3.org/2000/svg"
+                  width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                  <path
+                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                </svg></button>
+              <button id="navToDeleteSong" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete"
+                (click)="prepareSongToDelete(song.id!)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                  <path
+                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                </svg></button>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
   </div>
 
-</table>
-</div>
+  <div class="pageNavButtons" style=" display: flex;justify-content: center ; margin-top:40px">
+    <button [disabled]="first" class="btn btn-secondary btnAtras" (click)="previousPage()">Anterior</button>
+    <span>Pagina {{( page+1 )}} de {{ totalPages }} - Elementos totales: {{ totalElements }}</span>
+    <button [disabled]="last" class="btn btn-secondary btnSiguiente" (click)="nextPage()">Siguiente</button>
+  </div>
 
-<div class="pageNavButtons" style=" display: flex;justify-content: center ; margin-top:40px">
-  <button [disabled]="first" class="btn btn-secondary btnAtras" (click)="previousPage()">Anterior</button>
-  <span>Pagina {{( page+1 )}} de {{ totalPages }} - Elementos totales: {{ totalElements }}</span>
-  <button [disabled]="last" class="btn btn-secondary btnSiguiente" (click)="nextPage()">Siguiente</button>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="askConfirmationDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Confirmación de borrado</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" style="color: black;">
-        Vas a borrar esta canción, ¿Estás seguro/a?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteSong()">Eliminar</button>
+  <!-- Modal -->
+  <div class="modal fade" id="askConfirmationDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Confirmación de borrado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color: black;">
+          Vas a borrar esta canción, ¿Estás seguro/a?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteSong()">Eliminar</button>
+        </div>
       </div>
     </div>
   </div>

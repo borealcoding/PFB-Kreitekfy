@@ -1,56 +1,43 @@
 <div class="container-fluidd" style="height: 1250px; display:flex ; justify-content:center ; ">
-  <div id="card" class="bg-gradient-cold"  >
+  <div id="card" class="bg-gradient-cold">
     <div id="closeButton">
-
-      <svg  [routerLink]="['/user']" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      <svg [routerLink]="['/user']" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
       </svg>
-
     </div>
     <div class="row" style="display: flex; ">
-     
       <div class="col-5">
         <div id="image-body">
-          <img
-            id="albumImage"
-            [src]="'data:image/webp;base64,' + song.image"
-            alt="album-image"
-            class="card-img-top"
-            alt="album-image"
-            id = "card-Image"
-          />
+          <img id="albumImage" [src]="'data:image/webp;base64,' + song.image" alt="album-image" class="card-img-top"
+            alt="album-image" id="card-Image" />
         </div>
       </div>
       <div class="col-6" id="Song_Card_Info">
         <h3>&Aacute;lbum:&nbsp;{{song.albumName}}</h3>
         <h1>{{song.name}}</h1>
-        <h3>Artista:&nbsp;{{song.artistName}}  </h3>
+        <h3>Artista:&nbsp;{{song.artistName}} </h3>
         <h3>Duraci&oacute;n:&nbsp;{{(song.duration /60) | number:"1.0-0"}} minutos</h3>
         <h3>Fecha de Lanzamiento:&nbsp;{{song.releaseDate}} </h3>
         <h3> Puntuaci&oacute;n media de los usuarios: &nbsp;{{song.likes / (song.countRate) | number: "1.0"}}</h3>
       </div>
-  
     </div>
-    <div id="rating__Play"class="row" >
-      
-      
-
+    <div id="rating__Play" class="row">
       <div class="col-6" id="button-Container">
         <div>
-          <button id="buttonplay" (click)="reproducir()"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-          </svg></button>
+          <button id="buttonplay" (click)="reproducir()"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              class="bi bi-play-fill" viewBox="0 0 16 16">
+              <path
+                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+            </svg></button>
         </div>
       </div>
       <div class="col-6">
-        <div>
-          <p-rating  [(ngModel)]="val" [stars] ="4" [cancel]="false"(click)="valorar()"></p-rating>
-
-          {{song.likes}}
-          {{song.countRate}}
+        <div id="valoraciones">
+          <p-rating [(ngModel)]="val" [stars]="4" [cancel]="false" (click)="valorar()"></p-rating>
         </div>
       </div>
-
       <div class="card-body"></div>
     </div>
   </div>

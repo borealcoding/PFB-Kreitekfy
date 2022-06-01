@@ -1,21 +1,29 @@
 .imgAlbum {
   width: 80px;
 }
-#navToEditSong{
+
+#navToEditSong {
   border-radius: 50%;
   background-color: #1DB954;
   color: #ffffff;
 }
-#navToDeleteSong{
+
+#navToDeleteSong {
   border-radius: 50%;
   background-color: #ff0000;
   color: #ffffff;
+}
 
-}
-#fieldHead{
+#fieldHead {
   border-bottom: solid gray;
 }
-#field{
+
+#field {
   border-right: solid gray;
+  border-left: solid gray;
   border-bottom: solid gray;
+}
+
+.pageNavButtons span{
+  margin: 15px;
 }

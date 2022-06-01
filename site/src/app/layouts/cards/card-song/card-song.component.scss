@@ -1,33 +1,43 @@
-
-#button-Container{
-  justify-content: end; display:flex
-}
-#Song_Card_Info{
-  width:fit-content
+#button-Container {
+  justify-content: end;
+  display: flex
 }
 
-
-#card-Image{
-  width:70% ; height:70%
+#Song_Card_Info {
+  width: fit-content
 }
-#closeButton{
-  
+
+
+#card-Image {
+  width: 70%;
+  height: 70%
+}
+
+#closeButton {
+
   cursor: pointer;
-  justify-content: end; display:flex
+  justify-content: end;
+  display: flex
+}
 
+#rating__Play {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-#rating__Play{
-  height: 20% ; display:flex; justify-content:center ; align-items:center ;width:100% ;  
-}
-#buttonplay{
+
+#buttonplay {
   border-radius: 50%;
   background-color: #1DB954;
   color: #ffffff;
   align-items: center;
-width: 70px;
-height:70px;
+  width: 70px;
+  height: 70px;
 }
-#buttonplay:active{
+
+#buttonplay:active {
   background-color: #336e48;
 
 
@@ -39,66 +49,78 @@ div#card {
   border-radius: 1em;
   padding: 1em;
   box-shadow: 0 1em 2em rgb(0 0 0 / 75%);
-margin: 30px;
-  width: 50% ;
-  height:  50%;
+  margin: 30px;
+  width: 50%;
+  height: 50%;
   transition: 0.5s;
-  align-self:center  ; height: fit-content; 
+  align-self: center;
+  height: fit-content;
+
   div#image-body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+
     img#albumImage {
       border-radius: 1em;
     }
   }
 }
-#playbutton:active{
+
+#playbutton:active {
   color: #09e485;
 }
-#card:hover{
-background-color: #3d3d3d;
-transition: 0.5s;
+
+#card:hover {
+  background-color: #3d3d3d;
+  transition: 0.5s;
+}
+
+#valoraciones {
+  width: 190px;
+  display: flex;
+  justify-content: center;
 }
 
 
 
-  //
-  // Gradient system
-  //
-  $gradients: () !default;
-  $gradients: map-merge((
-      chill: linear-gradient(180deg, #09e485 40%,#0291e3 100%),
-      warm: linear-gradient(135deg, #F2CD48 0%,#FD803F 100%),
-      hot: linear-gradient(135deg, #F9445A 0%,#FD803F 100%),
-      cold: linear-gradient(180deg, #0291e3  -150%,#121112 40%)
-  ), $gradients);
-  
-  
-  // Gradient backgrounds
-  @mixin bg-gradient($parent, $gradient) {
-    #{$parent} {
-      background: $gradient;
-    }
+//
+// Gradient system
+//
+$gradients: (
+  ) !default;
+$gradients: map-merge((chill: linear-gradient(180deg, #09e485 40%, #0291e3 100%),
+      warm: linear-gradient(135deg, #F2CD48 0%, #FD803F 100%),
+      hot: linear-gradient(135deg, #F9445A 0%, #FD803F 100%),
+      cold: linear-gradient(180deg, #0291e3 -150%, #121112 40%)), $gradients
+);
+
+
+// Gradient backgrounds
+@mixin bg-gradient($parent, $gradient) {
+  #{$parent} {
+    background: $gradient;
   }
-  
-  // Gradient text
-  @mixin text-gradient($parent, $gradient) {
-    #{$parent} {
-      background-image: $gradient;
-      color:transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
+}
+
+// Gradient text
+@mixin text-gradient($parent, $gradient) {
+  #{$parent} {
+    background-image: $gradient;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
-  
-  // Gradient Classes 
-  @each $gradient, $value in $gradients {
-    @include bg-gradient(".bg-gradient-#{$gradient}", $value);
-  }
-  
-  // Gradient Classes 
-  @each $gradient, $value in $gradients {
-    @include text-gradient(".text-gradient-#{$gradient}", $value);
-  }
-  
+}
+
+// Gradient Classes 
+@each $gradient,
+$value in $gradients {
+  @include bg-gradient(".bg-gradient-#{$gradient}", $value);
+}
+
+// Gradient Classes 
+@each $gradient,
+$value in $gradients {
+  @include text-gradient(".text-gradient-#{$gradient}", $value);
+}
