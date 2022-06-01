@@ -14,7 +14,7 @@ export class PlayerComponent implements OnInit {
   songsByPlayedtimes: Song[] = [];
   songsByLikes: Song[] = [];
   page: number = 0;
-  size: number = 8;
+  size: number = 5;
   sortByDate: string = 'releaseDate,desc';
   sortByPlayedTimes: string = 'playedTimes,desc';
   sortByLikes: string = 'likes,desc';
