@@ -1,10 +1,18 @@
-<div style="height: 10000px">
-  <div class="container-fluid" style="width: 93%; height: 100%">
-    <span><p-tag id="styleTag" severity="success" value="{{styleObtained ? 'Estilo seleccionado: '+styleObtained: 'No se ha seleccionado ningún estilo'}}"></p-tag></span>
-    <div class="row" style="justify-content: space-between">
-      <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
-        Novedades
-      </h3>
+<div id="playerComponentBody">
+  <div class="container-fluid" id="PlayerContainer">
+    <span
+      ><p-tag
+        id="styleTag"
+        severity="success"
+        value="{{
+          styleObtained
+            ? 'Estilo seleccionado: ' + styleObtained
+            : 'No se ha seleccionado ningún estilo'
+        }}"
+      ></p-tag
+    ></span>
+    <div class="row" id="filterTitleRow">
+      <h3 id="filterTitle">Novedades</h3>
       <p
         style="
           display: flex;
@@ -16,7 +24,8 @@
         See all
       </p>
     </div>
-    <div class="row">
+
+    <div class="row" id="filterRow">
       <div *ngFor="let song of songsByReleaseDate" id="card" class="card">
         <div id="image-body">
           <img
@@ -30,17 +39,12 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ song.name }}</h5>
-          <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
-            {{ song.releaseDate }}
-          </p>
         </div>
       </div>
     </div>
-    <div class="row" style="justify-content: space-between">
-      <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
-        Lo mas escuchado
-      </h3>
-      <div class="row">
+    <div class="row" id="filterTitleRow">
+      <h3 id="filterTitle">Lo mas escuchado</h3>
+      <div class="row" id="filterRow">
         <div *ngFor="let song of songsByPlayedtimes" id="card" class="card">
           <div id="image-body">
             <img
@@ -54,20 +58,16 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ song.name }}</h5>
-            <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
-              {{ song.playedTimes }}
-            </p>
+            <p class="card-text" id="card-Text"></p>
           </div>
         </div>
       </div>
     </div>
     <div class="row"></div>
-    <div class="row" style="justify-content: space-between">
-      <h3 style="display: flex; align-self: flex-start; margin-top: 20px">
-        Lo mejor valorado
-      </h3>
+    <div class="row" id="filterTitleRow">
+      <h3 id="filterTitle">Lo mejor valorado</h3>
 
-      <div class="row">
+      <div class="row" id="filterRow">
         <div *ngFor="let song of songsByLikes" id="card" class="card">
           <div id="image-body">
             <img
@@ -81,10 +81,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ song.name }}</h5>
-            <p class="card-text" style="text-shadow: 4px 12px 4px rgb(0, 0, 0)">
-              Puntuacion de los usuarios:
-              {{ song.likes / song.countRate | number: "1.0" }}
-            </p>
+            <p class="card-text" id="card-Text"></p>
           </div>
         </div>
       </div>

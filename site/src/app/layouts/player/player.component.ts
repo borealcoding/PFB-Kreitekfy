@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/entities/song/model/song.model';
+import { Router } from '@angular/router';
 import { SongService } from 'src/app/entities/song/services/song.service';
 import { Style } from 'src/app/entities/style/model/style.model';
 
@@ -29,11 +30,22 @@ export class PlayerComponent implements OnInit {
   styleObtained: string | null = localStorage.getItem('style');
   filterByStyle: string = (this.styleObtained) ? this.styleObtained : "";
 
+  constructor(private songService: SongService, private router: Router) {
+  }
 
-  constructor(private songService: SongService) { }
 
   ngOnInit(): void {
     this.getAllSongs();
+    this.reload();
+  }
+
+  contador: number = 0;
+  public reload(): void {
+    if (this.contador = 0) {
+      window.location.reload();
+      this.contador = this.contador + 1;
+    }
+
   }
 
   public searchByFilters(): void {
