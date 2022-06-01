@@ -3,6 +3,7 @@
   display: flex
 }
 
+<<<<<<< HEAD
 #Song_Card_Info {
   width: fit-content
 }
@@ -29,15 +30,45 @@
 }
 
 #buttonplay {
+=======
+#button-Container{
+  justify-content: end; display:flex
+}
+#Song_Card_Info{
+  width:fit-content
+}
+
+
+#card-Image{
+  width:70% ; height:70%
+}
+#closeButton{
+  
+  cursor: pointer;
+  justify-content: end; display:flex
+
+}
+#rating__Play{
+  height: 20% ; display:flex; justify-content:center ; align-items:center ;width:100% ;  
+}
+#buttonplay{
+>>>>>>> 1d62d3c4d7d8e5923862f62914e429fbf3510a97
   border-radius: 50%;
   background-color: #1DB954;
   color: #ffffff;
   align-items: center;
+<<<<<<< HEAD
   width: 70px;
   height: 70px;
 }
 
 #buttonplay:active {
+=======
+width: 70px;
+height:70px;
+}
+#buttonplay:active{
+>>>>>>> 1d62d3c4d7d8e5923862f62914e429fbf3510a97
   background-color: #336e48;
 
 
@@ -53,9 +84,13 @@ div#card {
   width: 50%;
   height: 50%;
   transition: 0.5s;
+<<<<<<< HEAD
   align-self: center;
   height: fit-content;
 
+=======
+  align-self:center  ; height: fit-content; 
+>>>>>>> 1d62d3c4d7d8e5923862f62914e429fbf3510a97
   div#image-body {
     width: 90%;
     margin-left: auto;
@@ -66,6 +101,7 @@ div#card {
     }
   }
 }
+<<<<<<< HEAD
 
 #playbutton:active {
   color: #09e485;
@@ -80,6 +116,14 @@ div#card {
   width: 190px;
   display: flex;
   justify-content: center;
+=======
+#playbutton:active{
+  color: #09e485;
+}
+#card:hover{
+background-color: #3d3d3d;
+transition: 0.5s;
+>>>>>>> 1d62d3c4d7d8e5923862f62914e429fbf3510a97
 }
 
 
