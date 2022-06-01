@@ -6,7 +6,7 @@
     <div *ngFor="let user of users" class="user">
       <div id="card" class="card">
         <a
-          [routerLink]="user.role === 'ADMIN' ? 'admin' : 'user'"
+          [routerLink]="user.rol === 'ADMIN' ? '/' : 'user'"
           (click)="saveStorage(user)"
         >
           <div id="image-body">

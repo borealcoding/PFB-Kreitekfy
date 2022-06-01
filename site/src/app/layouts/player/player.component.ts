@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/entities/song/model/song.model';
-
+import { Router } from '@angular/router';
 import { SongService } from 'src/app/entities/song/services/song.service';
 
 @Component({
@@ -25,13 +25,23 @@ export class PlayerComponent implements OnInit {
   totalPages: number = 0;
   totalElements: number = 0;
 
-  constructor(private songService: SongService) { }
+  constructor(private songService: SongService, private router: Router) {
+    }
 
+    
   ngOnInit(): void {
     this.getAllSongs();
-  
-  }
+   this.reload();
+  } 
 
+ contador: number = 0;
+ public reload():void{
+   if(this.contador=0){
+      window.location.reload();
+      this.contador=this.contador+1;
+   }
+ 
+ }
 
   public searchByFilters(): void {
     this.getAllSongs();
