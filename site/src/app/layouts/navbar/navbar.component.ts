@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Song } from 'src/app/entities/song/model/song.model';
+import { SongService } from 'src/app/entities/song/services/song.service';
+import { Style } from 'src/app/entities/style/model/style.model';
+import { StyleService } from 'src/app/entities/style/services/style.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +12,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  selectedStyle?: Style;
+  styles: Style[] = [];
+  song?: Song;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private songService: SongService,
+    private styleService: StyleService,
+  ) { }
 
   ngOnInit(): void {
+    
   }
 
+  public getAllStyles(event?: any): void {
+    let styleSearch: string | undefined;
+    if (event?.query) {
+      styleSearch = event.query;
+    }
+    this.styleService.getAllStyles(styleSearch).subscribe({
+      next: (stylesFiltered) => { this.styles = stylesFiltered; },
+      error: (error) => { this.handleError(error); }
+    });
+  }
+
+  public styleSelected(): void {
+    let styleName: string | undefined = this.selectedStyle?.name.replace(/[ '"]+/g, ' ');
+    console.log("Estilo selecionado: " + styleName);
+    localStorage.setItem('style', styleName!);
+    window.location.href = 'user';
+  }
+
+
+  public getLocalStorage() {
+    return localStorage.getItem('style');
+  }
+
+  public handleError(error: any): void {
+    console.log(error);
+  }
+  
 }

@@ -59,7 +59,9 @@
                 d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
               />
             </svg>
-            Home <span class="sr-only"></span></a></li>
+            Home <span class="sr-only"></span
+          ></a>
+        </li>
         <li class="nav-item active">
           <a routerLink="/song-list" class="nav-link" style="color: white"
             ><svg
@@ -85,13 +87,24 @@
     </section>
     <section>
       <form class="form-inline my-2 my-lg-0">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Busca un estilo de música!"
-          style="width: 500px; border-radius: 100px; height: 30px"
-          aria-label="Search"
-        />
+        <p-autoComplete
+          [(ngModel)]="selectedStyle"
+          name="selectedStyle"
+          [suggestions]="styles"
+          (completeMethod)="getAllStyles($event)"
+          field="name"
+          (onSelect)="styleSelected()"
+          [required]="true"
+          [forceSelection]="true"
+          [size]="50"
+          [placeholder]="'Selecciona tu estilo favorito!'"
+          [style]="{
+            display: 'inline-flex',
+            height: '40px',
+            fontSize: '24px',
+            marginRight: '20px'
+          }"
+        ></p-autoComplete>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

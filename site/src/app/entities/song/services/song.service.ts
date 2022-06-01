@@ -7,13 +7,24 @@ import { Song } from '../model/song.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SongService {
   url = environment.dev
 
   constructor(private http: HttpClient) { }
 
-  public getAllSongs(page: number, size: number, sort: string): Observable<Song[]> {
-    let urlEndPoint: string = this.url + 'songs?page=' + page + '&size=' + size + '&sort=' + sort;
+  public getAllSongs(page: number, size: number, sort: string, style: string): Observable<Song[]> {
+    let urlEndPoint: string = this.url + 'songs?page=' + page + '&size=' + size + '&sort=' + sort + '&filter=style.name:EQUAL:' + style;
+    console.log("------------------- "+urlEndPoint);
+    return this.http.get<Song[]>(urlEndPoint);
+  }
+
+  public getAllSongsByStyle(partialStyle?: string): Observable<Song[]> {
+    let urlEndPoint: string = this.url + 'song';
+    if(partialStyle) {
+      urlEndPoint = urlEndPoint + "?partialName=" + partialStyle;
+      console.log(urlEndPoint);
+    }
     return this.http.get<Song[]>(urlEndPoint);
   }
 

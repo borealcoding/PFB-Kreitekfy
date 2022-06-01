@@ -37,8 +37,9 @@ export class SongListComponent implements OnInit {
   }
 
   private getAllSongs() {
-    this.songsService.getAllSongs(this.page, this.size, this.sort).subscribe({
+    this.songsService.getAllSongs(this.page, this.size, this.sort, this.style).subscribe({
       next: (data: any) => {
+        this.style = data.content;
         this.songs = data.content;
         this.first = data.first;
         this.last = data.last;

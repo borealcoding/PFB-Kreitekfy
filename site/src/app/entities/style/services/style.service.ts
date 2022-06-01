@@ -8,13 +8,10 @@ import { Style } from '../model/style.model';
   providedIn: 'root'
 })
 export class StyleService {
-  
   url = environment.dev;
-
   constructor(private http: HttpClient) { }
 
   public getAllStyles(partialName?: string): Observable<Style[]> {
-
     let urlEndPoint: string = this.url + 'styles';
     if (partialName) {
       urlEndPoint = urlEndPoint + "?partialName=" + partialName;
