@@ -61,10 +61,8 @@ playedTimes! : number;
 
   public Valorar(){
     this.song.likes += this.val;
-    if(this.song.countRate== NaN){
-      this.song.countRate==0
-    }
-    this.song.countRate += 1;
+    this.song.countRate +=1
+    
     this.updateSong();
   }
 

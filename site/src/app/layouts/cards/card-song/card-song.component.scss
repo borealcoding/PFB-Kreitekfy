@@ -1,5 +1,22 @@
 
+#button-Container{
+  justify-content: end; display:flex
+}
+#Song_Card_Info{
+  width:fit-content
+}
 
+
+#card-Image{
+  width:70% ; height:70%
+}
+#closeButton{
+  cursor: pointer;
+
+}
+#buttonplay{
+color:#1DB954
+}
 div#card {
   background-color: #171717;
   color: #fff;
@@ -10,7 +27,7 @@ margin: 30px;
   width: 50% ;
   height:  50%;
   transition: 0.5s;
-  mar
+  align-self:center  ; height: fit-content; 
   div#image-body {
     width: 90%;
     margin-left: auto;
@@ -19,6 +36,9 @@ margin: 30px;
       border-radius: 1em;
     }
   }
+}
+#playbutton:active{
+  color: #09e485;
 }
 #card:hover{
 background-color: #3d3d3d;

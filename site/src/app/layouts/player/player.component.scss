@@ -1,4 +1,25 @@
+#filterTitle{
+  display: flex; align-self: flex-start; margin-top: 20px;
+  text-shadow: 4px 12px 4px rgb(0, 0, 0)
+}
+#filterTitleRow{
+  justify-content: space-between;
 
+
+}
+#card-Text{
+  text-shadow: 4px 12px 4px rgb(0, 0, 0)
+}
+#PlayerContainer{
+  width: 93%; 
+  height: 100%
+}
+#filterRow{
+  justify-content: center;
+}
+#playerComponentBody {
+  height: 10000px
+}
 div#card {
     background-color: #171717;
     color: #fff;
@@ -9,7 +30,7 @@ div#card {
     width: 18rem ;
     height: 29rem;
     transition: 0.5s;
-    mar
+ 
     div#image-body {
       width: 90%;
       margin-left: auto;
