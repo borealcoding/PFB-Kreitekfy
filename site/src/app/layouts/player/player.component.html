@@ -4,17 +4,13 @@
       <h3 id="filterTitle">
         Novedades
       </h3>
-      <p
-        style="
-          display: flex;
-          align-self: right;
-          color: rgba(128, 128, 128, 0.419);
-          margin-top: 20px;">
+      <h5 id="seeAll">
         See all
-      </p>
+      </h5>
     </div>
 
     <div class="row" id="filterRow">
+      
       <div
         *ngFor="let song of songsByReleaseDate"
         id="card"
@@ -34,6 +30,7 @@
 
         </div>
       </div>
+    
       
     </div>
     <div class="row" id="filterTitleRow">
@@ -41,7 +38,9 @@
         <h3 id="filterTitle">
         Lo mas escuchado
       </h3>
- 
+      <h5 id="seeAll">
+        See all
+      </h5>
       
 
       <div class="row" id="filterRow">
@@ -65,6 +64,7 @@
             </p>
           </div>
         </div>
+   
         
       </div>
     </div>
@@ -73,6 +73,9 @@
       <h3 id="filterTitle">
         Lo mejor valorado
       </h3>
+      <h5 id="seeAll">
+        See all
+      </h5>
 
       <div class="row" id="filterRow">
         <div
@@ -96,6 +99,7 @@
             </p>
           </div>
         </div>
+
     </div>
     <div class="row"></div>
   </div>

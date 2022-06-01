@@ -25,6 +25,7 @@ import { UserPlayerComponent } from './entities/user/user-player/user-player.com
 import { SongFormComponent } from './entities/song/song-form/song-form/song-form.component';
 import { HttpRequestIntercept } from './config/interceptors/http-request-interceptor.interceptor';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import {ToastModule} from 'primeng/toast';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     FormsModule,
     DropdownModule,
     AutoCompleteModule,
-    RatingModule
+    RatingModule,
+    ToastModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestIntercept, multi: true }

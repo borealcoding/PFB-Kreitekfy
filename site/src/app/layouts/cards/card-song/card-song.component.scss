@@ -11,12 +11,28 @@
   width:70% ; height:70%
 }
 #closeButton{
+  
   cursor: pointer;
+  justify-content: end; display:flex
 
 }
-#buttonplay{
-color:#1DB954
+#rating__Play{
+  height: 20% ; display:flex; justify-content:center ; align-items:center ;width:100% ;  
 }
+#buttonplay{
+  border-radius: 50%;
+  background-color: #1DB954;
+  color: #ffffff;
+  align-items: center;
+width: 70px;
+height:70px;
+}
+#buttonplay:active{
+  background-color: #336e48;
+
+
+}
+
 div#card {
   background-color: #171717;
   color: #fff;
