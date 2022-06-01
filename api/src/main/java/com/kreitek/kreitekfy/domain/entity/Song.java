@@ -13,23 +13,23 @@ public class Song {
     @SequenceGenerator(name = "song_sequence")
     private Long id;
 
-    @Column(nullable = false, length = 100)
-    @Size(min =3,max = 100)
+    @Column(nullable = false, length = 50)
+    @Size(min =3,max = 50)
     private String name;
 
-    @Column(name = "duration")
+    @Column(name = "duration",length = 3)
     private Integer duration;
 
-    @Column(name = "likes")
+    @Column(name = "likes",length = 6)
     private Integer likes;
 
-    @Column(name = "count_rate")
+    @Column(name = "count_rate",length = 6)
     private Integer countRate;
 
     @Column(name="release_date")
     private Date releaseDate;
 
-    @Column(name = "played_times")
+    @Column(name = "played_times",length = 6)
     private Integer playedTimes;
 
     @ManyToOne
