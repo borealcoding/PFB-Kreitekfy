@@ -25,10 +25,6 @@ import { SongListComponent } from './entities/song/song-list/song-list.component
 import { UserPlayerComponent } from './entities/user/user-player/user-player.component';
 import { SongFormComponent } from './entities/song/song-form/song-form/song-form.component';
 import { HttpRequestIntercept } from './config/interceptors/http-request-interceptor.interceptor';
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d62d3c4d7d8e5923862f62914e429fbf3510a97
 
 
 @NgModule({

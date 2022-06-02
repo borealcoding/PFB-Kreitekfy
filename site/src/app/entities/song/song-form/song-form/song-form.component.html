@@ -1,78 +1,109 @@
 <h2>Operación seleccionada {{ mode }}</h2>
+<div style="flex-wrap:nowrap">
+    <div class="row" style="display: flex; justify-content: center ; ">
+        <form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
+            <!-- Nombre canción -->
 
-<form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
+            <div class="row">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" [(ngModel)]="song.name" name="name" class="form-control" id="name"
+                        #name="ngModel" required minlength="3" maxlength="50" ngModel pattern="^[a-zA-Z0-9 ]+$"
+                        (paste)="onPaste($event)" />
+                </div>
+            </div>
 
-    <!-- Nombre canción -->
-    <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" [(ngModel)]="song.name" name="name" class="form-control" id="name" #name="ngModel" required
-            minlength="3" maxlength="50" ngModel pattern="^[a-zA-Z0-9 ]+$" (paste)="onPaste($event)">
+            <!-- Validación nombre canción -->
+            <div class="row">
+                <div *ngIf="name.dirty && name.errors">
+                    <small class="form-text text-danger" *ngIf="name.errors['required']">Este campo es
+                        requerido!</small>
+                    <small class="form-text text-danger" *ngIf="name.errors['minlength']">El nombre debe tener al menos
+                        3 caracteres!</small>
+                    <small class="form-text text-danger" *ngIf="name.errors['maxlength']">El nombre no puede tener más
+                        de 100 caracteres!</small>
+                    <small class="form-text text-danger" *ngIf="name.errors['pattern']">El nombre no puede tener números
+                        ni carácteres raros!</small>
+                </div>
+            </div>
+
+            <!-- Duración canción -->
+            <div class="row">
+
+
+
+                <!-- Validación duración canción -->
+
+
+
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="duration">Duración en segundos</label>
+                        <input type="number" [(ngModel)]="song.duration" name="duration" class="form-control"
+                            id="duration" #duration="ngModel" ngModel pattern="[0-9 ]*" min="0" max="999" />
+                    </div>
+                    <div *ngIf="duration.dirty && duration.errors">
+                        <small class="form-text text-danger" *ngIf="duration.errors['min']">La duraci&oacute; debe ser
+                            al menos de 1 segundo</small>
+                        <small class="form-text text-danger" *ngIf="duration.errors['max']">La duraci&oacute; no puede
+                            durar más de 999 segundos</small>
+                    </div>
+                </div>
+
+                <!-- Cantidad likes canción-->
+                <div class="col-4" id="RowField">
+                    <div class="form-group">
+                        <label for="likes">Likes</label>
+                        <input type="number" [(ngModel)]="song.likes" name="likes" class="form-control" id="likes"
+                            #likes="ngModel" ngModel pattern="[0-9 ]*" />
+                    </div>
+                </div>
+
+                <!-- Fecha lanzamiento canción -->
+                <div class="col-4" id="RowField">
+                    <div class="form-group">
+                        <label for="releaseDate">Fecha de lanzamiento</label>
+                        <input type="date" [(ngModel)]="song.releaseDate" name="releaseDate" class="form-control"
+                            id="releaseDate" #releaseDate="ngModel" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Nombre artista -->
+                <div class="col-4" id="RowField">
+                    <div class="form-group">
+                        <label for="artistName">Nombre del artista</label>
+                        <p-dropdown [options]="artists" optionLabel="name" (onChange)="setArtistId($event)"
+                            placeholder="Selecciona Artista"></p-dropdown>
+                    </div>
+                </div>
+
+                <!-- Desplegable álbums -->
+
+                <div class="col-4" id="RowField">
+                    <label>Nombre del álbum</label>
+                    <p-dropdown [options]="albums" optionLabel="name" (onChange)="setAlbumId($event)" optionValue="id"
+                        placeholder="Selecciona Álbum"></p-dropdown>
+                </div>
+
+                <!-- Autocompletado estilo -->
+                <div class="col-4" id="RowField">
+                    <div class="form-group">
+                        <label for="styleId">Estilo</label>
+                        <p-autoComplete [(ngModel)]="selectedStyle" name="selectedStyle" [suggestions]="styles"
+                            (completeMethod)="getAllStyles($event)" field="name" (onSelect)="styleSelected()"
+                            (onClear)="unselectedStyle()" [required]="true" [forceSelection]="true"></p-autoComplete>
+                    </div>
+                </div>
+            </div>
+            <!-- Envío de información -->
+            <div class="buttonsForm">
+                <button class="btn btn-primary" (click)="saveSong()" [disabled]="songForm.invalid">
+                    Guardar
+                </button>
+            </div>
+        </form>
     </div>
-
-    <!-- Validación nombre canción -->
-    <div *ngIf="(name.dirty && name.errors)">
-        <small class="form-text text-danger" *ngIf="name.errors['required']">Este campo es requerido!</small>
-        <small class="form-text text-danger" *ngIf="name.errors['minlength']">El nombre debe tener al menos 3
-            caracteres!</small>
-        <small class="form-text text-danger" *ngIf="name.errors['maxlength']">El nombre no puede tener más de 100
-            caracteres!</small>
-        <small class="form-text text-danger" *ngIf="name.errors['pattern']">El nombre no puede tener números ni
-            carácteres raros!</small>
-    </div>
-
-    <!-- Duración canción -->
-    <div class="form-group">
-        <label for="duration">Duración en segundos</label>
-        <input type="number" [(ngModel)]="song.duration" name="duration" class="form-control" id="duration"
-            #duration="ngModel" ngModel pattern="[0-9 ]*" min="0" max="999">
-    </div>
-
-    <!-- Validación duración canción -->
-    <div *ngIf="(duration.dirty && duration.errors)">
-        <small class="form-text text-danger" *ngIf="duration.errors['min']">La duraci&oacute; debe ser al menos de 1
-            segundo</small>
-        <small class="form-text text-danger" *ngIf="duration.errors['max']">La duraci&oacute; no puede durar más de 999
-            segundos</small>
-    </div>
-
-    <!-- Cantidad likes canción-->
-    <div class="form-group">
-        <label for="likes">Likes</label>
-        <input type="number" [(ngModel)]="song.likes" name="likes" class="form-control" id="likes" #likes="ngModel"
-            ngModel pattern="[0-9 ]*">
-    </div>
-
-    <!-- Fecha lanzamiento canción -->
-    <div class="form-group">
-        <label for="releaseDate">Fecha de lanzamiento</label>
-        <input type="date" [(ngModel)]="song.releaseDate" name="releaseDate" class="form-control" id="releaseDate"
-            #releaseDate="ngModel">
-    </div>
-
-    <!-- Nombre artista -->
-    <div class="form-group">
-        <label for="artistName">Nombre del artista</label>
-        <p-dropdown [options]="artists" optionLabel="name" (onChange)="setArtistId($event)"
-            placeholder="Selecciona Artista"></p-dropdown>
-    </div>
-
-    <!-- Desplegable álbums -->
-    <div>
-        <label>Nombre del álbum</label>
-        <p-dropdown [options]="albums" optionLabel="name" (onChange)="setAlbumId($event)" optionValue="id"
-            placeholder="Selecciona Álbum"></p-dropdown>
-    </div>
-
-    <!-- Autocompletado estilo -->
-    <div class="form-group">
-        <label for="styleId">Estilo</label>
-        <p-autoComplete [(ngModel)]="selectedStyle" name="selectedStyle" [suggestions]="styles"
-            (completeMethod)="getAllStyles($event)" field="name" (onSelect)="styleSelected();"
-            (onClear)="unselectedStyle();" [required]="true" [forceSelection]="true"></p-autoComplete>
-    </div>
-
-    <!-- Envío de información -->
-    <div class="buttonsForm">
-        <button class="btn btn-primary" (click)="saveSong()" [disabled]="songForm.invalid">Guardar</button>
-    </div>
-</form>
+</div>

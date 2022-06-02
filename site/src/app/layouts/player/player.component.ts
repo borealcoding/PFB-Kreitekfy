@@ -30,6 +30,7 @@ export class PlayerComponent implements OnInit {
   styleObtained: string | null = localStorage.getItem('style');
   filterByStyle: string = (this.styleObtained) ? this.styleObtained : "";
 
+
   constructor(private songService: SongService, private router: Router) {
   }
 

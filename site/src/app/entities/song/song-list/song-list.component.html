@@ -1,13 +1,11 @@
 <div id="songListBody">
-  <h1 style=" display: flex;justify-content: center ;">Lista de canciones</h1>
-
-  <div class="col-12 " style=" display: flex;justify-content: center ; margin-bottom:40px">
+  <h1 id="title">Lista de canciones</h1>
+  <div id="newSongContainer" class="col-12">
     <button id="btnAddSong" [routerLink]="['/song-form', 'new']" class="btn btn-secondary">Añadir una nueva
       canción</button>
   </div>
-  <div style="height: fit-content; display: flex; justify-content:center;">
-    <table *ngIf="songs.length > 0">
-      <div class="row">
+  <div id="tableContainer">
+    <table *ngIf="songs.length > 0" class="table table-responsive">
         <thead>
           <th id="fieldHead" class="col-1">Id</th>
           <th id="fieldHead" class="col-1">Nombre</th>
@@ -22,8 +20,6 @@
           <th id="fieldHead" class="col-1">Imagen &aacute;lbum</th>
           <th id="fieldHead" class="col-1">Acciones</th>
         </thead>
-      </div>
-      <div class="row">
         <tbody>
           <tr *ngFor="let song of songs">
             <td id="field" class="col-1">{{ song.id }}</td>
@@ -37,11 +33,9 @@
             <td id="field" class="col-1">{{ song.albumId }}</td>
             <td id="field" class="col-1">{{ song.albumName }}</td>
             <td id="field" class="col-1">
-              <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.image" alt="album-image"
-                style="width: 50px; height: 50px;">
+              <img id="imgAlbum" [src]="'data:image/webp;base64,'+ song.image" alt="album-image">
             </td>
             <td id="field" class="col-1">
-
               <button id="navToEditSong" [routerLink]="['/song-form',song.id]"><svg xmlns="http://www.w3.org/2000/svg"
                   width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                   <path
@@ -56,26 +50,23 @@
             </td>
           </tr>
         </tbody>
-      </div>
     </table>
   </div>
-
-  <div class="pageNavButtons" style=" display: flex;justify-content: center ; margin-top:40px">
+  <div class="pageNavButtons">
     <button [disabled]="first" class="btn btn-secondary btnAtras" (click)="previousPage()">Anterior</button>
     <span>Pagina {{( page+1 )}} de {{ totalPages }} - Elementos totales: {{ totalElements }}</span>
     <button [disabled]="last" class="btn btn-secondary btnSiguiente" (click)="nextPage()">Siguiente</button>
   </div>
-
   <!-- Modal -->
   <div class="modal fade" id="askConfirmationDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Confirmación de borrado</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Confirmación de borrado</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" style="color: black;">
+        <div class="modal-body">
           Vas a borrar esta canción, ¿Estás seguro/a?
         </div>
         <div class="modal-footer">

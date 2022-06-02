@@ -52,6 +52,7 @@ export class SongListComponent implements OnInit {
 
   public nextPage(): void {
     this.page = this.page + 1;
+    console.log(this.page);
     this.getAllSongs();
   }
 
