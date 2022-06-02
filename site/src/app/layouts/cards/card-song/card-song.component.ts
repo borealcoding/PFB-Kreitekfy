@@ -50,12 +50,7 @@ export class CardSongComponent implements OnInit {
 
   public valorar() {
     this.song.likes += this.val;
-<<<<<<< HEAD
     this.song.countRate += 1;
-=======
-    this.song.countRate +=1
-    
->>>>>>> 1d62d3c4d7d8e5923862f62914e429fbf3510a97
     this.updateSong();
   }
 }

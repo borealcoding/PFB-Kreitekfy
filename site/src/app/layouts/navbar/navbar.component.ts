@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
   }
 
   public styleSelected(): void {
-    let styleName: string | undefined = this.selectedStyle?.name.replace(/[ '"]+/g, ' ');
+    let styleName: string | undefined = this.selectedStyle?.name;
     console.log("Estilo selecionado: " + styleName);
     localStorage.setItem('style', styleName!);
     window.location.href = 'user';

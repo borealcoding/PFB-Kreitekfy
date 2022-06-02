@@ -14,6 +14,12 @@ export class SongService {
   constructor(private http: HttpClient) { }
 
   public getAllSongs(page: number, size: number, sort: string, style: string): Observable<Song[]> {
+    let urlEndPoint: string = this.url + 'songs?page=' + page + '&size=' + size + '&sort=' + sort;
+    console.log("------------------- "+urlEndPoint);
+    return this.http.get<Song[]>(urlEndPoint);
+  }
+
+  public getAllSongsFiltered(page: number, size: number, sort: string, style: string): Observable<Song[]> {
     let urlEndPoint: string = this.url + 'songs?page=' + page + '&size=' + size + '&sort=' + sort + '&filter=style.name:EQUAL:' + style;
     console.log("------------------- "+urlEndPoint);
     return this.http.get<Song[]>(urlEndPoint);
